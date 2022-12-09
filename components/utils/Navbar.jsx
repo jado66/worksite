@@ -28,9 +28,9 @@ export default function Navbar(props){
     },[session])
 
     return(
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-5 " style={{zIndex:2}}>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-5 border-bottom border-brand border-2 " style={{zIndex:2}}>
             <div className="container-fluid">
-                <Link className="navbar-brand text-light" href="/">Business Name</Link>
+                <Link className="navbar-brand text-brand" href="/">Business Name</Link>
                 <button 
                     className="navbar-toggler" 
                     type="button" 
@@ -44,7 +44,7 @@ export default function Navbar(props){
                         
                         
                         {/* <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a className="nav-link dropdown-toggle text-brand" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Coaching
                             </a>
                             <ul className="dropdown-menu dropdown-menu-dark bg-dark border-0" aria-labelledby="navbarScrollingDropdown">
@@ -55,16 +55,16 @@ export default function Navbar(props){
                             </ul>
                         </li> */}
                         <li className="nav-item">
-                            <Link className="nav-link text-light" href="/apps">Application Development</Link>
+                            <Link className="nav-link text-brand" href="/apps">Application Development</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-light" href="/engineering">Engineering</Link>
+                            <Link className="nav-link text-brand" href="/engineering">Engineering</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-light" href="/consulting">Consulting</Link>
+                            <Link className="nav-link text-brand" href="/consulting">Consulting</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-light" href="/contact">Contact</Link>
+                            <Link className="nav-link text-brand" href="/contact">Contact</Link>
                         </li>
                     </ul>
 
@@ -73,7 +73,7 @@ export default function Navbar(props){
                             {
                                 session && (
                                     <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a className="nav-link dropdown-toggle text-brand" href="#" id="navbarScrollingDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Admin
                                         </a>
                                         <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown2">
@@ -89,9 +89,9 @@ export default function Navbar(props){
                                 <>
                                     {
                                         session ?
-                                        <li><Link className="nav-link text-light" href="/signout" onClick={signOut}>Sign Out</Link></li>
+                                        <li><Link className="nav-link text-brand" href="/signout" onClick={signOut}>Sign Out</Link></li>
                                         :
-                                        <li><Link className="nav-link text-light" href="/signin">Sign In</Link></li>
+                                        <li><Link className="nav-link text-brand" href="/signin">Sign In</Link></li>
                                     }
                                 </>
                             )}
