@@ -46,7 +46,7 @@ function Subscribe(props) {
         </p>
         <form onSubmit={subscribe}>
           <div>
-            <div className={"input-group mb-3 mt-4 "+(props.divClass)}>
+            <div className={"input-group mb-3 mt-4 form-white "+(props.divClass)}>
               <input 
                 required
                 id="email-input"
@@ -55,7 +55,7 @@ function Subscribe(props) {
                 placeholder={props.placeholder?props.placeholder:"What's your email address"}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className={(props.textClass)+" form-control text-dark"} 
+                className={(props.textClass)+" form-control "} 
                 aria-label="Recipient's email" 
               />
               <button 
