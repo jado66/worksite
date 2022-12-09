@@ -1,0 +1,22 @@
+// Variable overrides first
+// $warning: #F988A2;
+$enable-shadows: true;
+$prefix: "mo-";
+
+// Create your own map
+$custom-colors: (
+  "black": #000000,
+  "brand":#ff579f
+);
+
+// Merge the maps
+
+
+// Then import Bootstrap
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
