@@ -41,13 +41,9 @@ export default function Navbar(props){
                 </button>
                 <div className="collapse navbar-collapse " id="navbarTogglerDemo02">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-                        <li className="nav-item">
-                            <Link className="nav-link active text-light" aria-current="page" href="/blog">Blog</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link text-light" href="/about">About</Link>
-                        </li>
-                        <li className="nav-item dropdown">
+                        
+                        
+                        {/* <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Coaching
                             </a>
@@ -57,9 +53,18 @@ export default function Navbar(props){
                                 <li><hr className="dropdown-divider bg-light"/></li>
                                 <li><a className="dropdown-item" href="#">Life Coaching</a></li>
                             </ul>
+                        </li> */}
+                        <li className="nav-item">
+                            <Link className="nav-link text-light" href="/apps">Application Development</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-light" href="/shop">Shop</Link>
+                            <Link className="nav-link text-light" href="/engineering">Engineering</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link text-light" href="/consulting">Consulting</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link text-light" href="/contact">Contact</Link>
                         </li>
                     </ul>
 
@@ -92,7 +97,6 @@ export default function Navbar(props){
                             )}
                         </ul>
                     }
-                    <Socials ulClass = {"navbar-nav sm-icons me-0"} aClass = {"text-light"}/>
                 </div>
             </div>
         </nav>

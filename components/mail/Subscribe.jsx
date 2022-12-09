@@ -24,7 +24,7 @@ function Subscribe(props) {
     }
   
     return (
-      <div className = {" text-center border p-4 border-3 border-warning rounded-4 "+(props.divClass)}>
+      <div className = {" text-center border p-4 border-3 border-brand rounded-4 "+(props.divClass)}>
         <h4 className={"h-5 "+(props.textClass)}>
           { 
             props.title 
@@ -59,7 +59,7 @@ function Subscribe(props) {
                 aria-label="Recipient's email" 
               />
               <button 
-                className={(props.textClass)+" btn btn-warning border-rad text-dark "}
+                className={(props.textClass)+" btn btn-brand border-rad text-dark "}
                 type="button" 
                 id="button-addon2"
                 disabled={state === 'Loading'}
