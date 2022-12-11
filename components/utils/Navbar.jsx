@@ -56,15 +56,15 @@ export default function Navbar(props){
                             <ul className="dropdown-menu dropdown-menu-dark bg-dark border-brand " aria-labelledby="navbarScrollingDropdown">
                                 <li><h6 class="dropdown-header text-brand text-center">Software Solutions</h6></li>
                                 <li><hr className="dropdown-divider bg-brand mt-0 mx-3"/></li>
-                                <li><a className="dropdown-item text-brand" href="#">Web Applications</a></li>
-                                <li><a className="dropdown-item text-brand" href="#">Desktop Applications</a></li>
-                                <li><a className="dropdown-item text-brand" href="#">Mobile Applications</a></li>
+                                <li><Link className="dropdown-item text-brand" href="/apps/web">Web Applications</Link></li>
+                                <li><Link className="dropdown-item text-brand" href="/apps/desktop">Desktop Applications</Link></li>
+                                <li><Link className="dropdown-item text-brand" href="/apps/mobile">Mobile Applications</Link></li>
 
                                 <li><hr className="dropdown-divider bg-brand "/></li>
                                 <li><h6 class="dropdown-header text-brand text-center">High Tech Software</h6></li>
                                 <li><hr className="dropdown-divider bg-brand mt-0 mx-3"/></li>
-                                <li><a className="dropdown-item text-brand" href="#">Quantum Computing</a></li>
-                                <li><a className="dropdown-item text-brand" href="#">Blockchain/Crypto Apps</a></li>
+                                <li><Link className="dropdown-item text-brand" href="/high-tech/quantum-computing">Quantum Computing</Link></li>
+                                <li><Link className="dropdown-item text-brand" href="/high-tech/blockchain-&-crypto">Blockchain/Crypto Apps</Link></li>
 
                             </ul>
                         </li>

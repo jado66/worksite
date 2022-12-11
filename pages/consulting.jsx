@@ -4,9 +4,12 @@ export default function Consulting() {
 
   return (
     <div className="bg-dark text-light flex-grow-1">
-      Here are the programming languages that we know
+      <div className="container">
+        Here are the programming languages that we know
 
-      <LangaugesTable/>
+        <LangaugesTable/>
+      </div>
+      
     </div>
   )
 }
