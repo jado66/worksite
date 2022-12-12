@@ -1,10 +1,10 @@
 import Subscribe from "../components/mail/Subscribe";
 import UnderConstruction from "../components/UnderConstruction";
+import Container from "../components/utils/Container";
 export default function Consulting() {
   return (
-    <div className="bg-brandbg flex-grow-1 text-brand">
-        
-        <div className="text-center mt-4 fs-4 mb-4">
+    <Container>
+      <div className="text-center mt-4 fs-4 mb-4">
         Hi, we would love your money. Want to learn how to give us your money?
 
         </div>
@@ -19,6 +19,6 @@ export default function Consulting() {
             </div>
             
         </div>
-    </div>
+    </Container>        
   );
 }
