@@ -63,7 +63,7 @@ export default function Navbar(props){
                                 <li><Link className={"dropdown-item text-"+fg} href="/apps/mobile">Mobile Applications</Link></li>
 
                                 <li><hr className={"dropdown-divider bg-"+fg}/></li>
-                                <li><h6 class={"dropdown-header text-center text-"+fg}>High Tech Software</h6></li>
+                                <li><h6 className={"dropdown-header text-center text-"+fg}>High Tech Software</h6></li>
                                 <li><hr className={"dropdown-divider mt-0 mx-3 bg-"+fg}/></li>
                                 <li><Link className={"dropdown-item text-"+fg} href="/high-tech/quantum-computing">Quantum Computing</Link></li>
                                 <li><Link className={"dropdown-item text-"+fg} href="/high-tech/blockchain-&-crypto">Blockchain/Crypto Apps</Link></li>
