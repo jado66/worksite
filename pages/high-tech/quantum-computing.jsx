@@ -1,7 +1,11 @@
-import UnderConstruction from "../../components/UnderConstruction";
-
-export default function QuantumComputing() {
+import Container from "../../components/utils/Container";
+import UnderConstructionPage from "../../components/utils/UnderConstructionPage";
+export default function QCApps() {
   return (
-    <UnderConstruction/>
+    <UnderConstructionPage>
+      <Container>
+        <h1 className="text-center h3 mt-4">Quantum Computing Applications</h1>
+      </Container>
+    </UnderConstructionPage>
   );
 }

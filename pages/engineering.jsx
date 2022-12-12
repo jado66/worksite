@@ -1,7 +1,11 @@
+import Container from "../components/utils/Container";
+import ProtectedContent from "../components/utils/ProtectedContent";
+import UnderConstructionPage from "../components/utils/UnderConstructionPage";
+
 export default function Engineering() {
   return (
-    <div className="bg-dark text-light flex-grow-1">
-      <div className="container text-brand">
+    <UnderConstructionPage>
+      <Container>
         <h1 className="text-center h3 mt-4">3D Modeling Work</h1>
 
         <p>
@@ -23,14 +27,13 @@ export default function Engineering() {
         <h1 className="text-center h3 ">Patent Drawings</h1>
     
         <p>
-        Suspendisse potenti. Vivamus congue placerat auctor. Fusce tristique, tortor non gravida faucibus, tortor turpis tempor leo, vel posuere sem justo eu nunc. Vestibulum imperdiet nisl vel magna imperdiet egestas. Aenean non tristique enim. Aliquam pellentesque pulvinar pulvinar. Fusce posuere semper feugiat. Mauris tempus, arcu id mollis pulvinar, velit lectus pulvinar ipsum, nec faucibus ex felis ac lorem. Etiam nunc orci, consectetur sit amet porta eu, pellentesque ut lorem. Curabitur scelerisque enim sed ex sollicitudin, in sollicitudin mauris laoreet. Aenean rutrum sem porta quam gravida, non rhoncus elit pulvinar. Praesent lobortis sem at cursus viverra. Integer neque purus, aliquam nec orci nec, elementum gravida lectus. Etiam sed tellus sed dui faucibus bibendum et vel erat. Donec at dignissim libero.
+          Suspendisse potenti. Vivamus congue placerat auctor. Fusce tristique, tortor non gravida faucibus, tortor turpis tempor leo, vel posuere sem justo eu nunc. Vestibulum imperdiet nisl vel magna imperdiet egestas. Aenean non tristique enim. Aliquam pellentesque pulvinar pulvinar. Fusce posuere semper feugiat. Mauris tempus, arcu id mollis pulvinar, velit lectus pulvinar ipsum, nec faucibus ex felis ac lorem. Etiam nunc orci, consectetur sit amet porta eu, pellentesque ut lorem. Curabitur scelerisque enim sed ex sollicitudin, in sollicitudin mauris laoreet. Aenean rutrum sem porta quam gravida, non rhoncus elit pulvinar. Praesent lobortis sem at cursus viverra. Integer neque purus, aliquam nec orci nec, elementum gravida lectus. Etiam sed tellus sed dui faucibus bibendum et vel erat. Donec at dignissim libero.
 
-        Donec gravida, nisl sed pulvinar tincidunt, magna nisl accumsan lacus, eu molestie massa ex at ligula. Cras feugiat in odio at egestas. Nulla et iaculis arcu, at malesuada magna. Cras sed vulputate nulla. Vestibulum aliquet sit amet felis sit amet dictum. Sed elementum mauris sit amet sagittis cursus. Nulla ullamcorper ut lorem ullamcorper imperdiet. Curabitur in feugiat turpis, quis tempus risus. Sed feugiat sem vel urna porta, blandit aliquet lacus sodales. Nam sed est nunc. Nulla facilisi. Cras lectus eros, vulputate ut nunc vitae, volutpat pharetra dolor. Suspendisse potenti. Aenean rutrum finibus neque id pulvinar.
-
+          Donec gravida, nisl sed pulvinar tincidunt, magna nisl accumsan lacus, eu molestie massa ex at ligula. Cras feugiat in odio at egestas. Nulla et iaculis arcu, at malesuada magna. Cras sed vulputate nulla. Vestibulum aliquet sit amet felis sit amet dictum. Sed elementum mauris sit amet sagittis cursus. Nulla ullamcorper ut lorem ullamcorper imperdiet. Curabitur in feugiat turpis, quis tempus risus. Sed feugiat sem vel urna porta, blandit aliquet lacus sodales. Nam sed est nunc. Nulla facilisi. Cras lectus eros, vulputate ut nunc vitae, volutpat pharetra dolor. Suspendisse potenti. Aenean rutrum finibus neque id pulvinar.
         </p>
 
-      </div>
-      
-    </div>
+      </Container>
+    </UnderConstructionPage>
+    
   );
 }

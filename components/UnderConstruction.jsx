@@ -12,7 +12,7 @@ export default function UnderConstruction(props) {
     
   return(
     <div className = "h-100 text-left row gx-0" style = {{backgroundColor:"#0A0A0A",width: '100%', height: '100%',position:"relative"}}>
-          <h1 className={'h4 text-brand text-center text-uppercase my-auto '+(merienda.className)}>This site is under development</h1>
+      <h1 className={'h4 text-brand text-center text-uppercase my-auto '+(merienda.className)}>This {props.pageName?props.pageName+" page":"site"} is under development</h1>
     </div> 
   )
 }
