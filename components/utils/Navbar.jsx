@@ -1,13 +1,15 @@
 import Link from "next/link"
 import { useSession } from "next-auth/react"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { signOut } from "next-auth/react"
-import Socials from "./Socials"
-
+import { ThemeProvider } from "./ThemeProvider"
+import { AppTheme as Theme } from "./theme/ThemeEnum"
 
 
 export default function Navbar(props){
     
+    const {fg, bg} = useContext(ThemeProvider)
+
     const [hasLoggedIn, setHasLoggedIn] = useState(false)
     const { data: session } = useSession()
 
@@ -34,9 +36,9 @@ export default function Navbar(props){
     },[session])
 
     return(
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-5 border-bottom border-brand border-2 " style={{zIndex:2}}>
+        <nav className={"navbar navbar-expand-lg border-bottom border-2 px-5 navbar-"+fg+" bg-"+bg + " border-"+fg} style={{zIndex:2}}>
             <div className="container-fluid">
-                <Link className="navbar-brand text-brand" href="/">{businessName}</Link>
+                <Link className={"navbar-brand text-"+fg} href="/">{businessName}</Link>
                 <button 
                     className="navbar-toggler" 
                     type="button" 
@@ -50,33 +52,33 @@ export default function Navbar(props){
                         
                         
                         <li className="nav-item dropdown ">
-                            <a className="nav-link dropdown-toggle text-brand" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a className={"nav-link dropdown-toggle text-"+fg} href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Software
                             </a>
-                            <ul className="dropdown-menu dropdown-menu-dark bg-dark border-brand " aria-labelledby="navbarScrollingDropdown">
-                                <li><h6 class="dropdown-header text-brand text-center">Software Solutions</h6></li>
-                                <li><hr className="dropdown-divider bg-brand mt-0 mx-3"/></li>
-                                <li><Link className="dropdown-item text-brand" href="/apps/web">Web Applications</Link></li>
-                                <li><Link className="dropdown-item text-brand" href="/apps/desktop">Desktop Applications</Link></li>
-                                <li><Link className="dropdown-item text-brand" href="/apps/mobile">Mobile Applications</Link></li>
+                            <ul className={"dropdown-menu border-"+fg+" bg-"+bg} aria-labelledby="navbarScrollingDropdown">
+                                <li><h6 className={"dropdown-header text-center text-"+fg}>Software Solutions</h6></li>
+                                <li><hr className={"dropdown-divider mt-0 mx-3 bg-"+fg}/></li>
+                                <li><Link className={"dropdown-item text-"+fg} href="/apps/web">Web Applications</Link></li>
+                                <li><Link className={"dropdown-item text-"+fg} href="/apps/desktop">Desktop Applications</Link></li>
+                                <li><Link className={"dropdown-item text-"+fg} href="/apps/mobile">Mobile Applications</Link></li>
 
-                                <li><hr className="dropdown-divider bg-brand "/></li>
-                                <li><h6 class="dropdown-header text-brand text-center">High Tech Software</h6></li>
-                                <li><hr className="dropdown-divider bg-brand mt-0 mx-3"/></li>
-                                <li><Link className="dropdown-item text-brand" href="/high-tech/quantum-computing">Quantum Computing</Link></li>
-                                <li><Link className="dropdown-item text-brand" href="/high-tech/blockchain-&-crypto">Blockchain/Crypto Apps</Link></li>
+                                <li><hr className={"dropdown-divider bg-"+fg}/></li>
+                                <li><h6 class={"dropdown-header text-center text-"+fg}>High Tech Software</h6></li>
+                                <li><hr className={"dropdown-divider mt-0 mx-3 bg-"+fg}/></li>
+                                <li><Link className={"dropdown-item text-"+fg} href="/high-tech/quantum-computing">Quantum Computing</Link></li>
+                                <li><Link className={"dropdown-item text-"+fg} href="/high-tech/blockchain-&-crypto">Blockchain/Crypto Apps</Link></li>
 
                             </ul>
                         </li>
                        
                         <li className="nav-item">
-                            <Link className="nav-link text-brand" href="/engineering">Engineering</Link>
+                            <Link className={"nav-link text-"+fg} href="/engineering">Engineering</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-brand" href="/consulting">Consulting</Link>
+                            <Link className={"nav-link text-"+fg} href="/consulting">Consulting</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-brand" href="/contact">Contact</Link>
+                            <Link className={"nav-link text-"+fg} href="/contact">Contact</Link>
                         </li>
                     </ul>
 
@@ -85,14 +87,14 @@ export default function Navbar(props){
                             {
                                 session && (
                                     <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle text-brand" href="#" id="navbarScrollingDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a className={"nav-link dropdown-toggle text-"+fg} href="#" id="navbarScrollingDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Admin
                                         </a>
-                                        <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown2">
-                                            <li><Link className="dropdown-item" href="/admin-dashboard">Admin Dashboard</Link></li>
-                                            <li><Link className="dropdown-item" href="/mail">Mailroom</Link></li>
-                                            <li><hr className="dropdown-divider"/></li>
-                                            <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                        <ul className={"dropdown-menu  border-"+fg+" bg-"+bg} aria-labelledby="navbarScrollingDropdown2">
+                                            <li><Link className={"dropdown-item text-"+fg} href="/admin-dashboard">Admin Dashboard</Link></li>
+                                            <li><Link className={"dropdown-item text-"+fg} href="/mail">Mailroom</Link></li>
+                                            <li><hr className={"dropdown-divider bg-"+fg}/></li>
+                                            <li><a className={"dropdown-item text-"+fg} href="#">Something else here</a></li>
                                         </ul>
                                     </li>
                                 )
@@ -101,9 +103,9 @@ export default function Navbar(props){
                                 <>
                                     {
                                         session ?
-                                        <li><Link className="nav-link text-brand" href="/signout" onClick={signOut}>Sign Out</Link></li>
+                                        <li><Link className={"nav-link text-"+fg} href="/signout" onClick={signOut}>Sign Out</Link></li>
                                         :
-                                        <li><Link className="nav-link text-brand" href="/signin">Sign In</Link></li>
+                                        <li><Link className={"nav-link text-"+fg} href="/signin">Sign In</Link></li>
                                     }
                                 </>
                             )}

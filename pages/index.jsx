@@ -1,10 +1,14 @@
 import AppBase from '../components/utils/AppBase';
-import UnderConstruction from '../components/UnderConstruction';
+import Container from '../components/utils/Container';
+import ThemeSwitcher from '../components/utils/ThemeSwitcher';
+import UnderConstructionPage from '../components/utils/UnderConstructionPage';
 
 export default function Index() {
   return (
-    // <AppBase underConstruction>
-      <UnderConstruction />
-    // </AppBase>
+    <UnderConstructionPage>
+      <Container>
+        <ThemeSwitcher/>
+      </Container>
+    </UnderConstructionPage>
   );
 }

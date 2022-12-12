@@ -2,7 +2,7 @@ import Subscribe from "../components/mail/Subscribe";
 import UnderConstruction from "../components/UnderConstruction";
 export default function Consulting() {
   return (
-    <div className="bg-dark flex-grow-1 text-brand">
+    <div className="bg-brandbg flex-grow-1 text-brand">
         
         <div className="text-center mt-4 fs-4 mb-4">
         Hi, we would love your money. Want to learn how to give us your money?

@@ -59,7 +59,7 @@ function Subscribe(props) {
                 aria-label="Recipient's email" 
               />
               <button 
-                className={(props.textClass)+" btn btn-brand border-rad text-dark "}
+                className={(props.textClass)+" btn btn-brand border-rad text-brandbg "}
                 type="button" 
                 id="button-addon2"
                 disabled={state === 'Loading'}

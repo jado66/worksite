@@ -8,7 +8,7 @@ export default function About() {
         {/* <AppBase> */}
             <div className="text-center">
                 <h1 className="h3">Admin</h1>
-                <button className="btn btn-outline-dark" onClick={signOut}>Sign Out</button>
+                <button className="btn btn-outline-brandbg" onClick={signOut}>Sign Out</button>
             </div>
         {/* </AppBase> */}
     </ProtectedPage>
