@@ -80,6 +80,9 @@ export default function Navbar(props){
                         <li className="nav-item">
                             <Link className={"nav-link text-"+fg} href="/contact">Contact</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className={"nav-link text-"+fg} href="/about">About</Link>
+                        </li>
                     </ul>
 
                     {
@@ -92,6 +95,7 @@ export default function Navbar(props){
                                         </a>
                                         <ul className={"dropdown-menu  border-"+fg+" bg-"+bg} aria-labelledby="navbarScrollingDropdown2">
                                             <li><Link className={"dropdown-item text-"+fg} href="/admin-dashboard">Admin Dashboard</Link></li>
+                                            <li><Link className={"dropdown-item text-"+fg} href="/demos">Demos</Link></li>
                                             <li><Link className={"dropdown-item text-"+fg} href="/mail">Mailroom</Link></li>
                                             <li><hr className={"dropdown-divider bg-"+fg}/></li>
                                             <li><a className={"dropdown-item text-"+fg} href="#">Something else here</a></li>

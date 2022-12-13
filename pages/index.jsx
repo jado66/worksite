@@ -1,8 +1,8 @@
 import Container from '../components/utils/Container';
-import ThreeProng from '../components/utils/ThreeProng';
+import ThreeProng from '../components/pageComponents/ThreeProng';
 import UnderConstructionPage from '../components/utils/UnderConstructionPage';
 import { CodeSlash, Headset, GearWideConnected, Hammer, Bank } from 'react-bootstrap-icons';
-import ThreeCard from '../components/utils/ThreeCard';
+import ThreeCard from '../components/pageComponents/ThreeCard';
 import { Wifi, Phone, Laptop, Pencil } from 'react-bootstrap-icons';
 import Link from 'next/link';
 
@@ -75,7 +75,21 @@ export default function Index() {
           
           />
         </div>
-     
+          <hr className="border-theme mb-4"/>
+
+        <h2 className='text-center mb-4 '>Another Section</h2>
+
+        <div className="d-flex row px-4 mb-5">
+          <div className="col">
+            <p className="pe-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est sem, pretium vel lacinia sit amet, laoreet iaculis lorem. Fusce laoreet ullamcorper urna, rhoncus condimentum diam venenatis vel. Sed hendrerit neque sit amet ipsum condimentum, vel laoreet erat fringilla. Vivamus laoreet mattis nunc, at laoreet justo varius id. Donec luctus maximus feugiat. Phasellus ligula urna, pharetra vel nibh ac, iaculis elementum dolor. Vivamus sollicitudin libero sapien, ut lacinia enim suscipit quis. Etiam in convallis libero. In condimentum velit et elit eleifend pulvinar. Nunc massa ipsum, efficitur auctor augue vel, maximus ultrices dui. In pellentesque mauris id nisl vestibulum, et accumsan metus aliquet. Fusce consectetur dapibus quam, eu gravida est mollis vel. Duis tempor, est nec condimentum malesuada, mi orci iaculis augue, a ultricies ligula arcu a nisl. Vestibulum euismod dictum ante vitae semper. Integer malesuada convallis quam sed blandit. Proin egestas augue et lectus tincidunt tincidunt.
+
+            </p>
+          </div>
+          <div className='col-6 border border-theme bg-theme-inv rounded-3 opacity-50 d-flex justify-content-center' style={{minHeight:"200px"}}>
+            <h5 className='text-theme-inv text-center my-auto'>Picture</h5>
+          </div>
+        </div>   
       </Container>
     </UnderConstructionPage>
   );
