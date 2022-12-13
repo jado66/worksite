@@ -2,15 +2,9 @@
 import { useMemo } from 'react'
 import { useTable } from 'react-table'
 
-
-
-
-
-
 export default function LangaugesTable(props){
     
-    
-    const data = useMemo(()=>
+  const data = useMemo(()=>
     [
         {
           "name": "Python",
@@ -71,6 +65,10 @@ export default function LangaugesTable(props){
 
     return(
         <table {...getTableProps()}>
+        
+        
+        
+        
         <thead>
             {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>

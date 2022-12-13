@@ -22,3 +22,74 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+$fg-dark: map-get($custom-colors , "fg-dark") ;
+$bg-dark: map-get($custom-colors , "bg-dark") ;
+$fg-light: map-get($custom-colors , "fg-light") ;
+$bg-light: map-get($custom-colors , "bg-light") ;
+
+.theme-dark{
+  .border-theme{
+    border-color: $fg-dark !important;
+    opacity: 1
+  }
+
+  .bg-theme{
+    background-color: $bg-dark;
+  }
+  .bg-theme-inv{
+    background-color: $fg-dark;
+  }
+  
+  .btn-border{
+    border-color: $fg-dark;
+    color: $fg-dark;
+  }
+
+  .text-theme{
+    color: $fg-dark;
+  }
+
+  .text-theme-inv{
+    color: $bg-dark;
+  }
+
+  .card{
+    background-color: transparent;
+  }
+
+  a{
+    color: $fg-dark;
+  }
+} 
+
+.theme-light {
+
+  .border-theme{
+    border-color: $fg-light !important;
+    opacity: 1
+  }
+
+  .bg-theme{
+    background-color: $bg-light;
+  }
+  .bg-theme-inv{
+    background-color: $fg-light;
+  }
+
+  .text-theme{
+    color: $fg-dark;
+  }
+
+  .text-theme-inv{
+    color: $bg-light;
+  }
+
+  .btn-border{
+    border-color: $fg-light;
+    color:$fg-light
+  }
+
+  a{
+    color: $bg-dark;
+  }
+}

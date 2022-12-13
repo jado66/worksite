@@ -9,8 +9,7 @@ import { ThemeProvider } from '../components/utils/ThemeProvider'
 
 function MyApp({ Component, pageProps, session }) {
   
-  
-  const isUnderConstruction = true
+  const isUnderConstruction = true //broken
 
   const [theme, setTheme] = useState(Theme.Dark)
   const [fg, setFg] = useState('fg-dark')

@@ -8,7 +8,7 @@ import { AppTheme as Theme } from "./theme/ThemeEnum"
 
 export default function Navbar(props){
     
-    const {fg, bg} = useContext(ThemeProvider)
+    const {fg, bg, theme} = useContext(ThemeProvider)
 
     const [hasLoggedIn, setHasLoggedIn] = useState(false)
     const { data: session } = useSession()
@@ -36,16 +36,16 @@ export default function Navbar(props){
     },[session])
 
     return(
-        <nav className={"navbar navbar-expand-lg border-bottom border-2 px-5 navbar-"+fg+" bg-"+bg + " border-"+fg} style={{zIndex:2}}>
+        <nav className={"navbar navbar-expand-lg border-bottom border-2 px-5 navbar-"+theme+" bg-"+bg + " border-"+fg} style={{zIndex:2}}>
             <div className="container-fluid">
                 <Link className={"navbar-brand text-"+fg} href="/">{businessName}</Link>
                 <button 
-                    className="navbar-toggler" 
+                    className={"border-opacity-50 navbar-toggler"}
                     type="button" 
                     data-bs-toggle="collapse" 
                     data-bs-target="#navbarTogglerDemo02" 
                 >
-                <span className="navbar-toggler-icon"></span>
+                <span className={"navbar-toggler-icon text-"+fg}></span>
                 </button>
                 <div className="collapse navbar-collapse " id="navbarTogglerDemo02">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
@@ -58,9 +58,9 @@ export default function Navbar(props){
                             <ul className={"dropdown-menu border-"+fg+" bg-"+bg} aria-labelledby="navbarScrollingDropdown">
                                 <li><h6 className={"dropdown-header text-center text-"+fg}>Software Solutions</h6></li>
                                 <li><hr className={"dropdown-divider mt-0 mx-3 bg-"+fg}/></li>
-                                <li><Link className={"dropdown-item text-"+fg} href="/apps/web">Web Applications</Link></li>
-                                <li><Link className={"dropdown-item text-"+fg} href="/apps/desktop">Desktop Applications</Link></li>
-                                <li><Link className={"dropdown-item text-"+fg} href="/apps/mobile">Mobile Applications</Link></li>
+                                <li><Link className={"dropdown-item text-"+fg} href="/apps/web">Web Products </Link></li>
+                                <li><Link className={"dropdown-item text-"+fg} href="/apps/desktop">Desktop Products</Link></li>
+                                <li><Link className={"dropdown-item text-"+fg} href="/apps/mobile">Mobile Products</Link></li>
 
                                 <li><hr className={"dropdown-divider bg-"+fg}/></li>
                                 <li><h6 className={"dropdown-header text-center text-"+fg}>High Tech Software</h6></li>
