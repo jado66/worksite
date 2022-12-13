@@ -1,6 +1,5 @@
 import Container from "../components/utils/Container";
-import ProtectedContent from "../components/utils/ProtectedContent";
-import UnderConstructionPage from "../components/utils/UnderConstructionPage";
+import CallToAction from "../components/pageComponents/CallToAction";
 
 export default function Engineering() {
   return (
@@ -50,6 +49,9 @@ export default function Engineering() {
           <h5 className='text-theme-inv text-center my-auto'>Carousel Of Drawings</h5>
         </div>
       </div>
+      <hr className="bg-brand opacity-100 my-4"/>
+
+       <CallToAction/>
     </Container>   
   );
 }

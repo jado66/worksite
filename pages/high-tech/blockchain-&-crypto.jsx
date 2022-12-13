@@ -1,4 +1,6 @@
 import Container from "../../components/utils/Container";
+import CallToAction from "../../components/pageComponents/CallToAction";
+
 export default function BlockchainAndCrypto() {
   return (
     <Container>
@@ -31,6 +33,9 @@ export default function BlockchainAndCrypto() {
           <h5 className='text-theme-inv text-center my-auto'>Picture</h5>
         </div>
       </div>
+      <hr className="bg-brand opacity-100 my-4"/>
+
+       <CallToAction/>
     </Container>
   );
 }

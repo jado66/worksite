@@ -1,6 +1,7 @@
 import Container from "../../components/utils/Container";
 import ThreeProng from "../../components/pageComponents/ThreeProng";
 import { Apple, Android2, EmojiSmile } from "react-bootstrap-icons";
+import CallToAction from "../../components/pageComponents/CallToAction";
 
 export default function MobileApps() {
   return (
@@ -52,6 +53,10 @@ export default function MobileApps() {
         <h5 className='text-theme-inv text-center my-auto'>Picture</h5>
       </div>
     </div>
+
+    <hr className="bg-brand opacity-100 mt-4"/>
+
+    <CallToAction/>
   </Container> 
   );
 }

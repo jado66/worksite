@@ -1,3 +1,4 @@
+import CallToAction from "../../components/pageComponents/CallToAction";
 import Container from "../../components/utils/Container";
 import UnderConstructionPage from "../../components/utils/UnderConstructionPage";
 export default function DesktopApps() {
@@ -48,6 +49,9 @@ export default function DesktopApps() {
         <h5 className='text-theme-inv text-center my-auto'>Carousel Of Drawings</h5>
       </div>
     </div>
+    <hr className="bg-brand opacity-100 mt-4"/>
+
+    <CallToAction/>
   </Container>  
   );
 }

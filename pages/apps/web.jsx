@@ -1,8 +1,6 @@
 import Container from "../../components/utils/Container";
-import UnderConstructionPage from "../../components/utils/UnderConstructionPage";
-import ThemeSwitcher from "../../components/utils/ThemeSwitcher";
 import ThreeProng from "../../components/pageComponents/ThreeProng";
-
+import CallToAction from "../../components/pageComponents/CallToAction";
 import { WindowSidebar, Kanban, CodeSquare } from "react-bootstrap-icons";
 import { useContext, useState } from "react";
 import useMediaQuery from "../../hooks/useMediaQuery";
@@ -69,7 +67,7 @@ export default function WebApps() {
 
         <h1 className="text-center h3 mt-4 mb-4">Another Section</h1>
 
-        <div className="d-flex row px-4 mb-5">
+        <div className="d-flex row px-4">
           <div className={'mb-2 border border-theme bg-theme-inv rounded-3 opacity-50 d-flex justify-content-center '+(isViewMobile?"col-12":"col-7 order-first")} style={{minHeight:"200px"}}>
             <h5 className='text-theme-inv text-center my-auto'>Interactive Demo</h5>
           </div>
@@ -80,7 +78,11 @@ export default function WebApps() {
           </div>         
         </div>
       </div>
+      <hr className="bg-brand opacity-100 my-4"/>
+
+       <CallToAction/>
     </div>
+    
   </Container>
   );
 }
