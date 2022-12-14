@@ -65,10 +65,7 @@ export default function LangaugesTable(props){
 
     return(
         <table {...getTableProps()}>
-        
-        
-        
-        
+                
         <thead>
             {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>

@@ -3,12 +3,10 @@ import { useSession } from "next-auth/react"
 import { useContext, useEffect, useState } from "react"
 import { signOut } from "next-auth/react"
 import { ThemeProvider } from "./ThemeProvider"
-import { AppTheme as Theme } from "./theme/ThemeEnum"
-
 
 export default function Navbar(props){
     
-    const {fg, bg, theme} = useContext(ThemeProvider)
+    const {fg, bg, theme, invertTheme} = useContext(ThemeProvider)
 
     const [hasLoggedIn, setHasLoggedIn] = useState(false)
     const { data: session } = useSession()
@@ -94,9 +92,12 @@ export default function Navbar(props){
                                             Admin
                                         </a>
                                         <ul className={"dropdown-menu  border-"+fg+" bg-"+bg} aria-labelledby="navbarScrollingDropdown2">
-                                            <li><Link className={"dropdown-item text-"+fg} href="/admin-dashboard">Admin Dashboard</Link></li>
-                                            <li><Link className={"dropdown-item text-"+fg} href="/demos">Demos</Link></li>
-                                            <li><Link className={"dropdown-item text-"+fg} href="/mail">Mailroom</Link></li>
+                                            <li><Link className={"dropdown-item text-"+fg} href="/admin/dashboard">Admin Dashboard</Link></li>
+                                            <li onClick={invertTheme}><Link className={"dropdown-item text-"+fg} href="#">Invert Theme</Link></li>
+                                            <li><Link className={"dropdown-item text-"+fg} href="/admin/demos">Demos</Link></li>
+                                            <li><Link className={"dropdown-item text-"+fg} href="/admin/mail">Mailroom</Link></li>
+                                            <li><Link className={"dropdown-item text-"+fg} href="/404">404</Link></li>
+
                                             <li><hr className={"dropdown-divider bg-"+fg}/></li>
                                             <li><a className={"dropdown-item text-"+fg} href="#">Something else here</a></li>
                                         </ul>

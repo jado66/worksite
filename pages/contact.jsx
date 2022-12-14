@@ -1,9 +1,10 @@
 import EmailUs from "../components/mail/EmailUs";
+import CallToAction from "../components/pageComponents/CallToAction";
 import Container from "../components/utils/Container";
 export default function Consulting() {
   return (
     <Container>
-      <h1 className="text-center h3 mt-4 mb-4">Contact</h1>
+      <h1 className="text-center h3 mt-3 mb-3">Contact</h1>
   
       <div className="px-4 mb-5">
         <p>
@@ -16,11 +17,18 @@ export default function Consulting() {
           <h5 className='text-theme-inv text-center my-auto'>Picture</h5>
         </div>
 
+
+
         <EmailUs
           title = {"Send Us An Message"}
           textClass = {"text-uppercase"}
           subtitle = {"We'll send you free tips and tricks to impress other bronies with."}
           />
+
+        <h1 className="text-center h5 mt-4 mb-4">- OR -</h1>
+
+        <CallToAction/>
+
       </div>
        
         

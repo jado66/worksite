@@ -2,7 +2,7 @@ import Container from "../components/utils/Container";
 export default function About() {
   return (
     <Container>
-      <h1 className="text-center h3 mt-4 mb-4">About</h1>
+      <h1 className="text-center h3 mt-3 mb-3">About</h1>
       <div className="px-4">
         <p>
           Suspendisse potenti. Vivamus congue placerat auctor. Fusce tristique, tortor non gravida faucibus, tortor turpis tempor leo, vel posuere sem justo eu nunc. Vestibulum imperdiet nisl vel magna imperdiet egestas. Aenean non tristique enim. Aliquam pellentesque pulvinar pulvinar. Fusce posuere semper feugiat. Mauris tempus, arcu id mollis pulvinar, velit lectus pulvinar ipsum, nec faucibus ex felis ac lorem. Etiam nunc orci, consectetur sit amet porta eu, pellentesque ut lorem. Curabitur scelerisque enim sed ex sollicitudin, in sollicitudin mauris laoreet. Aenean rutrum sem porta quam gravida, non rhoncus elit pulvinar. Praesent lobortis sem at cursus viverra. Integer neque purus, aliquam nec orci nec, elementum gravida lectus. Etiam sed tellus sed dui faucibus bibendum et vel erat. Donec at dignissim libero.

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ThreeCard(props){
     return(
     <div className="row row-cols-1 row-cols-md-3 mb-3 text-center ">
@@ -19,7 +21,9 @@ export default function ThreeCard(props){
           </div>
           <div className="card-body">
             {props.body2}
-            <button type="button" className="w-100 btn btn-lg btn-border">Get started</button>
+            <Link href={"/schedule"}>
+              <button type="button" className="w-100 btn btn-lg btn-border">Get started</button>
+            </Link>
           </div>
         </div>
       </div>

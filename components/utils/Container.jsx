@@ -7,12 +7,13 @@ export default function Container(props){
     const {fg, bg, theme} = useContext(ThemeProvider)  
 
     return(
-        <div className={"flex-grow-1 bg-"+bg+" theme-"+theme} >
-            <div className={"container text-"+fg}>
+        <div className={"flex-grow-1 d-flex flex-column bg-"+bg+" theme-"+theme} >
+            <div className={"container flex-grow-1 d-flex flex-column text-"+fg}>
                 {props.children}
             </div>
-            <Footer/>
-
+            {!props.noFooter &&
+                <Footer/>
+            }
         </div>
     )
 }

@@ -1,3 +1,4 @@
+import Link from "next/link"
 export default function CallToAction(props){    
     return(
         <div className = {"text-center px-4 rounded-4 mx-4 d-flex flex-column mb-4 "+(props.divClass)}>
@@ -19,9 +20,11 @@ export default function CallToAction(props){
                 "A 15-30 conversation to with one of our top engineers. At no cost, discuss your vision and your needs."
             }
             </p>
-            <button className="text-uppercase btn border-theme text-theme btn-lg mx-5 mt-2  ">
-                Get Started Today
-            </button>  
+            <Link href = "/schedule">
+                <button className="text-uppercase btn border-theme text-theme btn-lg mx-5 mt-2  ">
+                    Get Started Today
+                </button> 
+            </Link>
         </div>
     )
 }

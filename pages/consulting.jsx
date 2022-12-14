@@ -29,8 +29,8 @@ export default function Consulting() {
 
           </p>
         </div>
-        <div className='col-6 border border-theme bg-theme-inv rounded-3 opacity-50 d-flex justify-content-center' style={{minHeight:"200px"}}>
-          <h5 className='text-theme-inv text-center my-auto'>Picture</h5>
+        <div className='col-6 border border-theme rounded-3 opacity-50 d-flex justify-content-center bg-a1' style={{minHeight:"200px"}}>
+          <h5 className='text-theme-inv text-center my-auto '>Picture</h5>
         </div>
       </div>
       <hr className="bg-brand opacity-100 my-4"/>

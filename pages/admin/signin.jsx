@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AppBase from "../components/utils/AppBase";
+import AppBase from "../../components/utils/AppBase";
 
 import { signIn, providers } from "next-auth/react"
 
