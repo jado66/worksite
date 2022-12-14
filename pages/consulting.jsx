@@ -8,7 +8,7 @@ export default function Consulting() {
       <h1 className="text-center h3 mt-4 mb-4">Consulting</h1>
 
       <div className="d-flex row px-4">
-        <div className='col-6 border border-theme bg-theme-inv rounded-3 opacity-50 d-flex justify-content-center' style={{minHeight:"200px"}}>
+        <div className='col-6 rounded-3 d-flex justify-content-center bg-a1 ' style={{minHeight:"200px"}}>
           <h5 className='text-theme-inv text-center my-auto'>Picture</h5>
         </div>
         <div className="col">
@@ -20,7 +20,7 @@ export default function Consulting() {
 
       <hr className="bg-brand opacity-100 my-4"/>
 
-      <h1 className="text-center h3 mt-4 mb-4">More Consulting</h1>
+      <h1 className="text-center h3 mb-4">More Consulting</h1>
 
       <div className="d-flex row px-4">
         <div className="col">
@@ -29,7 +29,7 @@ export default function Consulting() {
 
           </p>
         </div>
-        <div className='col-6 border border-theme rounded-3 opacity-50 d-flex justify-content-center bg-a1' style={{minHeight:"200px"}}>
+        <div className='col-6 rounded-3 d-flex justify-content-center bg-a3' style={{minHeight:"200px"}}>
           <h5 className='text-theme-inv text-center my-auto '>Picture</h5>
         </div>
       </div>

@@ -68,7 +68,7 @@ export default function WebApps() {
         <h1 className="text-center h3 mt-4 mb-4">Another Section</h1>
 
         <div className="d-flex row px-4">
-          <div className={'mb-2 border border-theme bg-theme-inv rounded-3 opacity-50 d-flex justify-content-center '+(isViewMobile?"col-12":"col-7 order-first")} style={{minHeight:"200px"}}>
+          <div className={'mb-2 bg-a1 rounded-3 d-flex justify-content-center '+(isViewMobile?"col-12":"col-7 order-first")} style={{minHeight:"200px"}}>
             <h5 className='text-theme-inv text-center my-auto'>Interactive Demo</h5>
           </div>
           <div className="col">

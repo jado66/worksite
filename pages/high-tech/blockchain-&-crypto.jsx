@@ -10,10 +10,9 @@ export default function BlockchainAndCrypto() {
         <div className="col">
           <p className="pe-3">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est sem, pretium vel lacinia sit amet, laoreet iaculis lorem. Fusce laoreet ullamcorper urna, rhoncus condimentum diam venenatis vel. Sed hendrerit neque sit amet ipsum condimentum, vel laoreet erat fringilla. Vivamus laoreet mattis nunc, at laoreet justo varius id. Donec luctus maximus feugiat. Phasellus ligula urna, pharetra vel nibh ac, iaculis elementum dolor. Vivamus sollicitudin libero sapien, ut lacinia enim suscipit quis. Etiam in convallis libero. In condimentum velit et elit eleifend pulvinar. Nunc massa ipsum, efficitur auctor augue vel, maximus ultrices dui. In pellentesque mauris id nisl vestibulum, et accumsan metus aliquet. Fusce consectetur dapibus quam, eu gravida est mollis vel. Duis tempor, est nec condimentum malesuada, mi orci iaculis augue, a ultricies ligula arcu a nisl. Vestibulum euismod dictum ante vitae semper. Integer malesuada convallis quam sed blandit. Proin egestas augue et lectus tincidunt tincidunt.
-
           </p>
         </div>
-        <div className='col-6 border border-theme bg-theme-inv rounded-3 opacity-50 d-flex justify-content-center' style={{minHeight:"200px"}}>
+        <div className='col-6 bg-a3 rounded-3 d-flex justify-content-center' style={{minHeight:"200px"}}>
           <h5 className='text-theme-inv text-center my-auto'>Picture</h5>
         </div>
       </div>      
@@ -29,7 +28,7 @@ export default function BlockchainAndCrypto() {
           Donec gravida, nisl sed pulvinar tincidunt, magna nisl accumsan lacus, eu molestie massa ex at ligula. Cras feugiat in odio at egestas. Nulla et iaculis arcu, at malesuada magna. Cras sed vulputate nulla. Vestibulum aliquet sit amet felis sit amet dictum. Sed elementum mauris sit amet sagittis cursus. Nulla ullamcorper ut lorem ullamcorper imperdiet. Curabitur in feugiat turpis, quis tempus risus. Sed feugiat sem vel urna porta, blandit aliquet lacus sodales. Nam sed est nunc. Nulla facilisi. Cras lectus eros, vulputate ut nunc vitae, volutpat pharetra dolor. Suspendisse potenti. Aenean rutrum finibus neque id pulvinar.
         </p>
 
-        <div className='col border border-theme bg-theme-inv rounded-3 opacity-50 d-flex justify-content-center mb-4' style={{minHeight:"200px"}}>
+        <div className='col bg-a1 rounded-3 d-flex justify-content-center mb-4' style={{minHeight:"200px"}}>
           <h5 className='text-theme-inv text-center my-auto'>Picture</h5>
         </div>
       </div>
