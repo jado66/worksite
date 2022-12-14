@@ -1,93 +1,35 @@
-
-import { useMemo } from 'react'
-import { useTable } from 'react-table'
+import LanguagesData from './LanguageData.json'
 
 export default function LangaugesTable(props){
-    
-  const data = useMemo(()=>
-    [
-        {
-          "name": "Python",
-          "compatibility":["web","desktop"],
-          "scope":["backend"]
-        },
-        {
-            "name": "React",
-            "compatibility":["web","desktop"],
-            "scope":["frontend"]
-        },
-        {
-            "name": "Javascript",
-            "compatibility":["web","desktop"],
-            "scope":["frontend","backend"]
-        },
-        {
-            "name": "TypeScript",
-            "compatibility":["web","desktop"],
-            "scope":["frontend","backend"]
-        },
-    
-    ],[])
 
-    const columns = useMemo(
-        () => [
-          {
-            Header: 'Programming Language',
-            columns: [
-            {
-                Header: 'Name',
-                accessor: 'name',
-                },
-              {
-                Header: 'Compatibility',
-                accessor: 'compatibility',
-              },
-              {
-                Header: 'Scope',
-                accessor: 'scope',
-              },
-            ],
-          }
-        ],
-        []
-      )
-
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-        } = useTable({ columns, data })
-
-    const cellClass = "px-4 py-1 "
-
+  const DisplayData=LanguagesData.map(
+    (info)=>{
+        return(
+            <tr>
+                <td>{info.name}</td>
+                <td>{info.platform.join(", ")}</td>
+                <td>{info.scope.join(", ")}</td>
+            </tr>
+        )
+      }
+    )
 
     return(
-        <table {...getTableProps()}>
-                
-        <thead>
-            {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps()}  className = {cellClass}>{column.render('Header')}</th>
-                ))}
-            </tr>
-            ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-            {rows.map((row, i) => {
-            prepareRow(row)
-            return (
-                <tr {...row.getRowProps()}>
-                {row.cells.map(cell => {
-                    return <td {...cell.getCellProps()} className = {cellClass}>{cell.render('Cell')}</td>
-                })}
-                </tr>
-            )
-            })}
-        </tbody>
-        </table>
+      <div>
+          <table class="table">
+              <thead className='text-theme text-center'>
+                  <tr>
+                  <th>Name</th>
+                  <th>Platform</th>
+                  <th>Scope</th>
+                  </tr>
+              </thead>
+              <tbody className='text-theme text-center'>
+
+                  {DisplayData}
+                  
+              </tbody>
+          </table>       
+      </div>
     )
-    
 }
