@@ -20,7 +20,7 @@ export default function Engineering() {
 
       <hr className="bg-brand opacity-100 my-4"/>
 
-      <h1 className="text-center h3 mt-4 mb-4">Engineering Drawings</h1>
+      <h1 className="text-center h3 mb-4">Engineering Drawings</h1>
 
       <div className="d-flex row px-4">
         <div className='col-6 bg-a2 rounded-3 d-flex justify-content-center' style={{minHeight:"200px"}}>

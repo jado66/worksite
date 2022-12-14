@@ -40,6 +40,25 @@ $a1-light: map-get($custom-colors , "a1-light");
 $a2-light: map-get($custom-colors , "a2-light");
 $a3-light: map-get($custom-colors , "a3-light");
 
+// Navbar hover
+.dropdown-menu.bg-bg-dark{
+  a{
+    &:hover {
+      background-color: $fg-dark;
+      color: $bg-dark !important;
+  }
+  }
+}
+
+.dropdown-menu.bg-bg-light{
+  a{
+    &:hover {
+      background-color: $fg-light;
+      color: $bg-light !important;
+  }
+  }
+}
+
 .theme-dark{
   .border-theme{
     border-color: $fg-dark !important;
