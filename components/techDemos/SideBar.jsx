@@ -47,7 +47,7 @@ export default function FlowSideBar(props){
                     <h2 className='h5 mb-0 pb-2 ms-3 mt-2 pt-1 flex-grow-1 text-center text-nowrap'>Add Nodes</h2>
 
                     <button 
-                        className={'m-2 p-2  d-flex align-items-center text-theme bg-theme ms-auto '}
+                        className={'m-2 p-2 border-0 d-flex align-items-center text-theme bg-theme ms-auto '}
                         onClick={()=>{
                             setShowSideBar(false)
                             closeSideBar()
