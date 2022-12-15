@@ -90,6 +90,9 @@ $a3-light: map-get($custom-colors , "a3-light");
   .text-theme{
     color: $fg-dark;
   }
+  .text-dark{
+    color: $bg-dark;
+  }
 
   .text-theme-inv{
     color: $bg-dark;
@@ -101,6 +104,35 @@ $a3-light: map-get($custom-colors , "a3-light");
 
   a{
     color: $fg-dark;
+  }
+
+  .react-flow__controls-button{
+    background-color: $fg-dark !important;
+    color: $bg-dark !important;
+    border-color: $fg-dark !important;
+  }
+  .react-flow__node{
+    background-color: $fg-dark !important;
+    color: $bg-dark !important;
+    // border-color: $fg-dark !important;
+  }
+
+  .react-flow__node.react-flow__node-type1{
+    background-color: $a1-dark !important;
+    border-radius: 150px / 150px;
+        // color: $fg-dark !important;
+    // border-color: $fg-light !important;
+  }
+
+  .react-flow__node.react-flow__node-type2{
+    background-color: $a2-dark !important;
+    // color: $fg-dark !important;
+    // border-color: $fg-light !important;
+  }
+
+  .highlight {
+    background-color: $a3-dark !important;
+    color: white;
   }
 } 
 
@@ -132,6 +164,9 @@ $a3-light: map-get($custom-colors , "a3-light");
   .text-theme{
     color: $fg-light;
   }
+  .text-dark{
+    color: $fg-light;
+  }
 
   .text-theme-inv{
     color: $bg-light;
@@ -143,6 +178,68 @@ $a3-light: map-get($custom-colors , "a3-light");
   }
 
   a{
-    color: $bg-dark;
+    color: $bg-light;
   }
+
+  .react-flow__controls-button{
+    background-color: $bg-light !important;
+    color: $fg-light !important;
+    border-color: $bg-light !important;
+  }
+  .react-flow__node{
+    background-color: $bg-light !important;
+    color: $fg-light !important;
+    // border-color: $fg-light !important;
+  }
+
+  .react-flow__node.react-flow__node-type1{
+    background-color: $a2-light !important;
+    color: $fg-light !important;
+    // border-color: $fg-light !important;
+  }
+
+  .react-flow__node.react-flow__node-type2{
+    background-color: $a1-light !important;
+    color: $fg-light !important;
+    // border-color: $fg-light !important;
+  }
+
+  .react-flow__node.highlight {
+    background-color: #ff0072;
+    color: white;
+  }
+}
+
+.react-flow__node.selected{
+  opacity: 75%;
+}
+
+/* react flow */
+.react-flow__attribution{
+  display: none;
+}
+
+// .react-flow__controls > button{
+//   margin-top: 2px;
+//   // margin-bottom: 1px;
+
+// }
+
+.d-hidden{
+  display: none !important;
+}
+
+
+:export {
+  fgDark: $fg-dark;
+  bgDark: $bg-dark;
+  a1Dark: $a1-dark;
+  a2Dark: $a2-dark;
+  a3Dark: $a3-dark;
+
+  fgLight: $fg-light;
+  bgLight: $bg-light;
+  a1Light: $a1-light;
+  a2Light: $a2-light;
+  a3Light: $a3-light;
 }
