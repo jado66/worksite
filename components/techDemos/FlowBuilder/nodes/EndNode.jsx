@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import { Handle } from 'reactflow';
 
+
+/* eslint-disable react/display-name */
 export default memo(({ data, isConnectable }) => {
   return (
     <>
