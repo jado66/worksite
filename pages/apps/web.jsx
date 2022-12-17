@@ -73,7 +73,10 @@ export default function WebApps() {
 
         <div className="d-flex row px-lg-4 gx-0">
           <div className={'mb-2 rounded-3 d-flex justify-content-center gx-0 '+(isViewMobile?"col-12":" col-12 col-lg-8  order-first")} style={{minHeight:"400px"}}>
-            <ReactFlowDemo className = {"flex-grow-1 rounded-3"}/>
+            <ReactFlowDemo 
+              className = {"flex-grow-1 rounded-3"}
+              isDesktop = {isDesktop}  
+            />
           </div>
           <div className="col">
             <h3 className="text-center pt-lg-0">Flow Builder</h3>

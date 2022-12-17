@@ -222,6 +222,73 @@ $a3-light: map-get($custom-colors , "a3-light");
   position: static !important; 
 }
 
+.react-flow__node.touched{
+  background-color: red !important;
+}
+
+/* react flow side nav */
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 175px; /* 0 width - change this with JavaScript */
+  position: absolute; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  right: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  /* padding-top: 60px; Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.react-flow__edge-path{
+  stroke-width: 2px !important;
+}
+
+@media (max-width: 991px) {
+  .react-flow__handle {
+    width: 10px !important;
+    height: 20px !important;
+    border-radius: 2px !important;
+
+  }
+
+  .react-flow-drag {
+    height: 40px;
+  }
+
+  .sidenav {
+    width: 100%; /* 100% Full-height */
+    height: 105px; /* 0 width - change this with JavaScript */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    flex-grow: 1;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    /* padding-top: 60px; Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+
+  .react-flow__edge-path{
+    stroke-width: 4px !important;
+  }
+}
+
 /* react flow */
 .react-flow__attribution{
   display: none;

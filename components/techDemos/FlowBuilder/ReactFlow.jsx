@@ -79,6 +79,35 @@ const returnData = (type) =>{
     }
 }
 
+const onPaneClick = (event, type, reactFlowWrapper, reactFlowInstance, getId, returnData, setNodes, setDraggableNodeTouched) =>{
+    
+    if (!type){
+        return
+    }
+
+    console.log(type)
+    
+    const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
+    const position = reactFlowInstance.project({
+        x: event.clientX - reactFlowBounds.left - 150/2,
+        y: event.clientY - reactFlowBounds.top - 50/2,
+    });
+
+    const newNode = {
+        id: getId(),
+        type: type,
+        position,
+        sourcePosition: 'right',
+        targetPosition: 'left',
+        data: returnData(type),
+    };
+
+    console.log(JSON.stringify(newNode))
+
+    setNodes((nds) => nds.concat(newNode));
+    setDraggableNodeTouched(null)
+}
+
 export const FlowContext = createContext()
 
 const edgeTypes = {
@@ -92,6 +121,7 @@ const Flow = (props) => {
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const [isNodeSelected, setNodeIsSelected] = useState(false)
     const [selectedNodes, setSelectedNodes] = useState([])
+    const [draggableNodeTouched, setDraggableNodeTouched] = useState(null)
     const { getIntersectingNodes } = useReactFlow();
     const reactFlowWrapper = useRef(null);
 
@@ -153,6 +183,8 @@ const Flow = (props) => {
             { ...params, type: 'buttonedge', data: {onDelete: onDeleteEdge}, }, eds)),
     []);
 
+    const onClick = (evt) => onPaneClick(evt, draggableNodeTouched, reactFlowWrapper, reactFlowInstance, getId, returnData, setNodes, setDraggableNodeTouched)
+
     const onDragOver = useCallback((event) => {
         event.preventDefault();
         event.dataTransfer.dropEffect = 'move';
@@ -174,13 +206,13 @@ const Flow = (props) => {
             x: event.clientX - reactFlowBounds.left,
             y: event.clientY - reactFlowBounds.top,
             });
-            const newNode = {
-                id: getId(),
-                type,
-                position,
-                sourcePosition: 'right',
-                targetPosition: 'left',
-                data: returnData(type),
+        const newNode = {
+            id: getId(),
+            type,
+            position,
+            sourcePosition: 'right',
+            targetPosition: 'left',
+            data: returnData(type),
         };
 
         setNodes((nds) => nds.concat(newNode));
@@ -195,13 +227,18 @@ const Flow = (props) => {
             }}
         >
             <div className={'h-100 position-relative border border-theme '+ props.className} ref={reactFlowWrapper}>
-                <FlowSideBar/>
+                <FlowSideBar 
+                    isDesktop = {props.isDesktop}
+                    draggableNodeTouched = {draggableNodeTouched}
+                    setDraggableNodeTouched = {setDraggableNodeTouched}    
+                />
                 <ReactFlow
                     className=''
                     nodes={nodes}
                     edges={edges}
                     onInit={setReactFlowInstance}
                     onNodesChange={onNodesChange}
+                    onPaneClick={onClick}
                     onEdgesChange={onEdgesChange}
                     onConnect={onConnect}
                     onNodeDrag={onNodeDrag}
