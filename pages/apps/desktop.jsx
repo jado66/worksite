@@ -13,7 +13,7 @@ export default function DesktopApps() {
 
         </p>
       </div>
-      <div className='col-6 bg-a2 rounded-3 d-flex justify-content-center' style={{minHeight:"200px"}}>
+      <div className='col-lg-6 col-12 bg-a2 rounded-3 d-flex justify-content-center' style={{minHeight:"200px"}}>
         <h5 className='text-theme-inv text-center my-auto'>Picture</h5>
       </div>
     </div>
@@ -23,7 +23,7 @@ export default function DesktopApps() {
     <h1 className="text-center h3 mt-4 mb-4">Another Section</h1>
 
     <div className="d-flex row px-4">
-      <div className='col-6 bg-a3 rounded-3 d-flex justify-content-center' style={{minHeight:"200px"}}>
+      <div className='col-lg-6 col-12 bg-a3 rounded-3 d-flex justify-content-center' style={{minHeight:"200px"}}>
         <h5 className='text-theme-inv text-center my-auto'>Gif</h5>
       </div>
       <div className="col">

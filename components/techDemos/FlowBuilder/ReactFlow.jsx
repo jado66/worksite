@@ -12,9 +12,10 @@ import ReactFlow, {
 } from 'reactflow';
 import CustomControls from './CustomControls';
 import 'reactflow/dist/style.css';
-import { ThemeProvider } from '../utils/ThemeProvider';
+import { ThemeProvider } from '../../utils/ThemeProvider';
 import EdgeButton from './EdgeButton';
 import FlowSideBar from './SideBar';
+import KeyControls from './KeyControls';
 
 const initialNodes = [
     {
@@ -52,6 +53,8 @@ const initialEdges = [
   },
 ];
 
+const deleteKeyCodes = ["Delete","Backspace"]
+
 const defaultEdgeOptions = {
     type: 'smoothstep',
   };
@@ -82,7 +85,7 @@ const edgeTypes = {
   buttonedge: EdgeButton,
 };
 
-const Flow = () => {
+const Flow = (props) => {
     const {theme} = useContext(ThemeProvider)
     const [reactFlowInstance, setReactFlowInstance] = useState(null);
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -100,7 +103,14 @@ const Flow = () => {
         }
     })
 
-   
+    const unselect = useCallback((_, node) => {        
+        setNodes((ns) =>
+          ns.map((n) => ({
+            ...n,
+            selected: false
+          }))
+        );
+      }, []);
 
     const onNodeDrag = useCallback((_, node) => {
         const intersections = getIntersectingNodes(node).map((n) => n.id);
@@ -184,7 +194,7 @@ const Flow = () => {
                 onDeleteEdge:onDeleteEdge,
             }}
         >
-            <div className='h-100 position-relative border border-theme' ref={reactFlowWrapper}>
+            <div className={'h-100 position-relative border border-theme '+ props.className} ref={reactFlowWrapper}>
                 <FlowSideBar/>
                 <ReactFlow
                     className=''
@@ -201,11 +211,17 @@ const Flow = () => {
                     snapGrid={[25,25]}
                     defaultEdgeOptions={defaultEdgeOptions}
                     edgeTypes={edgeTypes}
+                    multiSelectionKeyCode = {true ? 'ControlLeft' : 'Meta'}
+                    deleteKeyCode = {deleteKeyCodes}
                     fitView
                     onDrop={onDrop}
                     onDragOver={onDragOver}
                     attributionPosition="top-right"
                 >
+
+                <KeyControls
+                    unselect = {unselect}
+                />
                 
                 <CustomControls 
                     className='bg-theme text-theme btn-border'
@@ -227,12 +243,12 @@ const Flow = () => {
    
 }
 
-const ReactFlowDemo = () => {
+const ReactFlowDemo = (props) => {
     
 
   return (
     <ReactFlowProvider>
-        <Flow/>
+        <Flow {...props}/>
     </ReactFlowProvider>
     
   );

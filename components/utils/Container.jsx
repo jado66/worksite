@@ -8,7 +8,7 @@ export default function Container(props){
 
     return(
         <div className={"flex-grow-1 d-flex flex-column bg-"+bg+" theme-"+theme} >
-            <div className={"container flex-grow-1 d-flex flex-column text-"+fg}>
+            <div className={"container gx-4 flex-grow-1 d-flex flex-column text-"+fg}>
                 {props.children}
             </div>
             {!props.noFooter &&

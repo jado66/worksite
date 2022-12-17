@@ -5,7 +5,7 @@ export default function LangaugesTable(props){
   const DisplayData=LanguagesData.map(
     (info)=>{
         return(
-            <tr>
+            <tr key = {info.name+"_row"}>
                 <td>{info.name}</td>
                 <td>{info.platform.join(", ")}</td>
                 <td>{info.scope.join(", ")}</td>

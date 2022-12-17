@@ -5,6 +5,7 @@ import { WindowSidebar, Kanban, CodeSquare } from "react-bootstrap-icons";
 import { useContext, useState } from "react";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { ThemeProvider } from "../../components/utils/ThemeProvider";
+import ReactFlowDemo from "../../components/techDemos/FlowBuilder/ReactFlow";
 
 export default function WebApps() {
   
@@ -19,7 +20,7 @@ export default function WebApps() {
     
       <h1 className="text-center h3 mt-3 mb-3">Web Services</h1>
       <div className="col">
-        <p className="px-5">
+        <p className="px-lg-5">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est sem, pretium vel lacinia sit amet, laoreet iaculis lorem. Fusce laoreet ullamcorper urna, rhoncus condimentum diam venenatis vel. Sed hendrerit neque sit amet ipsum condimentum, vel laoreet erat fringilla. Vivamus laoreet mattis nunc, at laoreet justo varius id. Donec luctus maximus feugiat. Phasellus ligula urna, pharetra vel nibh ac, iaculis elementum dolor. Vivamus sollicitudin libero sapien, ut lacinia enim suscipit quis. Etiam in convallis libero. In condimentum velit et elit eleifend pulvinar. Nunc massa ipsum, efficitur auctor augue vel, maximus ultrices dui. In pellentesque mauris id nisl vestibulum, et accumsan metus aliquet. Fusce consectetur dapibus quam, eu gravida est mollis vel. Duis tempor, est nec condimentum malesuada, mi orci iaculis augue, a ultricies ligula arcu a nisl. Vestibulum euismod dictum ante vitae semper. Integer malesuada convallis quam sed blandit. Proin egestas augue et lectus tincidunt tincidunt.
 
         </p>
@@ -43,37 +44,44 @@ export default function WebApps() {
       
       <h1 className="text-center h3 mt-4 mb-4">Responsive Design</h1>
 
-      <div className="d-flex row px-4">
-        <div className="col">
-          <p className="pe-3">
-            We build responsive websites and web applications. You can tell when a website isn't reponsive. For example, press this button to collapse the page to a mobile view:          
-          </p>
-          <p>
-          An important part of any website or web application is the user interace. The interface should be dynamic. We are capable of providing multiple themes.          
-
-          </p>
-        </div>
-        <div className='col-2 d-flex flex-column justify-content-center gx-0 ' style={{minHeight:"50px"}}>
+      <div className="d-flex row px-lg-4 gx-0">
+        <div className="col text-center">
+          <div>
+            <p className="text-start">
+              We build responsive websites and web applications. You can tell when a website isn&apos;t reponsive. For example, press this button to collapse the page to a mobile view:          
+            </p>
+            <button className="btn btn-border mb-2" onClick={()=>setViewMobile(p=>!p)}>
+              {isViewMobile?"Switch To Desktop":"Responsive Mobile View"}
+            </button>
+          </div>
+          <div>
+            <p className="text-start">
+              An important part of any website or web application is the user interace. The interface should be dynamic. We are capable of providing multiple themes.          
+            </p>
+            <button className="btn btn-border" onClick={invertTheme}>
+              Switch to {(theme === "dark"?"light":"dark")} mode
+            </button>
+          </div>
           
-          <button className="btn btn-border mb-2" onClick={()=>setViewMobile(p=>!p)}>
-            {isViewMobile?"Switch To Desktop":"Responsive Mobile View"}
-          </button>
-          <button className="btn btn-border" onClick={invertTheme}>
-            Switch to {(theme === "dark"?"light":"dark")} mode
-          </button>
+          
         </div>
+          
 
         <hr className="bg-brand opacity-100 my-4"/>
 
-        <h1 className="text-center h3 mt-4 mb-4">Another Section</h1>
+        <h1 className="text-center h3 mt-4 mb-4">Technical Demos</h1>
 
-        <div className="d-flex row px-4">
-          <div className={'mb-2 bg-a1 rounded-3 d-flex justify-content-center '+(isViewMobile?"col-12":"col-7 order-first")} style={{minHeight:"200px"}}>
-            <h5 className='text-theme-inv text-center my-auto'>Interactive Demo</h5>
+        <div className="d-flex row px-lg-4 gx-0">
+          <div className={'mb-2 rounded-3 d-flex justify-content-center gx-0 '+(isViewMobile?"col-12":" col-12 col-lg-8  order-first")} style={{minHeight:"400px"}}>
+            <ReactFlowDemo className = {"flex-grow-1 rounded-3"}/>
           </div>
           <div className="col">
-            <p className="pe-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est sem, pretium vel lacinia sit amet, laoreet iaculis lorem. Fusce laoreet ullamcorper urna, rhoncus condimentum diam venenatis vel. Sed hendrerit neque sit amet ipsum condimentum, vel laoreet erat fringilla. Vivamus laoreet mattis nunc, at laoreet justo varius id. Donec luctus maximus feugiat. Phasellus ligula urna, pharetra vel nibh ac, iaculis elementum dolor. Vivamus sollicitudin libero sapien, ut lacinia enim suscipit quis. Etiam in convallis libero. In condimentum velit et elit eleifend pulvinar. Nunc massa ipsum, efficitur auctor augue vel, maximus ultrices dui. In pellentesque mauris id nisl vestibulum, et accumsan metus aliquet. Fusce consectetur dapibus quam, eu gravida est mollis vel. Duis tempor, est nec condimentum malesuada, mi orci iaculis augue, a ultricies ligula arcu a nisl. Vestibulum euismod dictum ante vitae semper. Integer malesuada convallis quam sed blandit. Proin egestas augue et lectus tincidunt tincidunt.
+            <h3 className="text-center pt-lg-0">Flow Builder</h3>
+            <p className="px-3">
+              React Flow is a library for building node-based graphs. You can easily implement custom node types and it comes with components like a mini-map and graph controls.
+            </p>
+            <p className="px-3">
+              Try creating your own flow diagram.
             </p>
           </div>         
         </div>

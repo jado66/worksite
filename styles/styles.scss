@@ -214,6 +214,14 @@ $a3-light: map-get($custom-colors , "a3-light");
   opacity: 75%;
 }
 
+.react-flow__node{
+  height: 50px;
+}
+
+.react-flow-drag{
+  position: static !important; 
+}
+
 /* react flow */
 .react-flow__attribution{
   display: none;

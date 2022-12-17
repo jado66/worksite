@@ -7,7 +7,7 @@ export default function Schedule() {
       <div className="d-flex row px-4 mb-5">
         <div className='col-6 border border-theme bg-theme-inv rounded-3 opacity-50 d-flex flex-column justify-content-center' style={{minHeight:"200px"}}>
           <h5 className='text-theme-inv text-center '>Calendar Hooked Up To Google Calendar</h5>
-          <h6 className='text-theme-inv text-center '>- We'll use Google APIs to pull events on the calendar</h6>
+          <h6 className='text-theme-inv text-center '>- We&apos;`ll use Google APIs to pull events on the calendar</h6>
           <h6 className='text-theme-inv text-center '>- And those events will show up as available slots</h6>
           <h6 className='text-theme-inv text-center '>- Next.js will send an email when a call is scheduled</h6>
           <h6 className='text-theme-inv text-center '>- Maybe, we need to accept it. </h6>
