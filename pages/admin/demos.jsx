@@ -1,6 +1,6 @@
 import Container from "../../components/utils/Container";
 import LangaugesTable from "../../components/pageComponents/LanguagesTable";
-import ReactFlowDemo from "../../components/techDemos/ReactFlow";
+import ReactFlowDemo from "../../components/techDemos/FlowBuilder/ReactFlow";
 
 export default function Demos() {
   return (
