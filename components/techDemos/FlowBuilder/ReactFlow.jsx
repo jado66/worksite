@@ -1,4 +1,8 @@
 import React, { createContext, useCallback, useContext, useRef, useState } from 'react';
+import StepNode from './nodes/StepNode';
+import StartNode from './nodes/StartNode'
+import EndNode from './nodes/EndNode'
+import LabelNode from './nodes/LabelNode';
 import ReactFlow, {
     useNodesState,
     useEdgesState,
@@ -16,18 +20,21 @@ import { ThemeProvider } from '../../utils/ThemeProvider';
 import EdgeButton from './EdgeButton';
 import FlowSideBar from './SideBar';
 import KeyControls from './KeyControls';
+import ConditionalWrapper from '../../utils/ConditionalWrapper';
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 const initialNodes = [
     {
         id: 'ewb-1',
-        type: 'input',
-        data: { label: 'Start' },
+        type: 'startNode',
         sourcePosition: 'right',
+        data: { label: 'Start' }, 
         position: { x: 50, y: 0 },
         className: "bg-a1"
     },
     { 
         id: 'ewb-2', 
+        type: 'stepNode',
         sourcePosition: 'right',
         targetPosition: 'left',
         data: { label: 'Step 1' }, 
@@ -36,7 +43,7 @@ const initialNodes = [
 
     { 
         id: 'ewb-3', 
-        type: 'output',
+        type: 'endNode',
         targetPosition: 'left',
         data: { label: 'End' }, 
         position: { x: 750, y: 0 } 
@@ -64,13 +71,13 @@ const getId = () => `dndnode_${id++}`;
 
 const returnData = (type) =>{
     switch(type){
-        case "input":
+        case "startNode":
             return { label: `Start` }
-        case "output":
+        case "endNode":
             return { label: `End` }
-        case "step":
+        case "stepNode":
             return { label: `Step` }
-        case "label":
+        case "labelNode":
             return { label: `Label` }
         case "default":
         default:
@@ -114,6 +121,13 @@ const edgeTypes = {
   buttonedge: EdgeButton,
 };
 
+const nodeTypes = {
+    startNode: StartNode,
+    endNode: EndNode,
+    labelNode: LabelNode,
+    stepNode: StepNode
+}
+
 const Flow = (props) => {
     const {theme} = useContext(ThemeProvider)
     const [reactFlowInstance, setReactFlowInstance] = useState(null);
@@ -121,10 +135,12 @@ const Flow = (props) => {
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const [isNodeSelected, setNodeIsSelected] = useState(false)
     const [selectedNodes, setSelectedNodes] = useState([])
+    const [fullscreen, setFullscreen] = useState(false)
     const [draggableNodeTouched, setDraggableNodeTouched] = useState(null)
     const { getIntersectingNodes } = useReactFlow();
     const reactFlowWrapper = useRef(null);
 
+    const handle = useFullScreenHandle();
     
     useOnSelectionChange({
         onChange: ({ nodes, edges }) => {
@@ -141,6 +157,15 @@ const Flow = (props) => {
           }))
         );
       }, []);
+
+    const handleDataChange = (nodeId, change) => {
+        setNodes((ns) =>
+            ns.map((n) => ({
+            ...n,
+            data: n.id === nodeId ? { label: change} : n.data,
+            }))
+        );
+    };  
 
     const onNodeDrag = useCallback((_, node) => {
         const intersections = getIntersectingNodes(node).map((n) => n.id);
@@ -224,57 +249,62 @@ const Flow = (props) => {
         <FlowContext.Provider
             value={{
                 onDeleteEdge:onDeleteEdge,
+                handleDataChange,handleDataChange
             }}
         >
-            <div className={'h-100 position-relative border border-theme '+ props.className} ref={reactFlowWrapper}>
-                <FlowSideBar 
-                    isDesktop = {props.isDesktop}
-                    draggableNodeTouched = {draggableNodeTouched}
-                    setDraggableNodeTouched = {setDraggableNodeTouched}    
-                />
-                <ReactFlow
-                    className=''
-                    nodes={nodes}
-                    edges={edges}
-                    onInit={setReactFlowInstance}
-                    onNodesChange={onNodesChange}
-                    onPaneClick={onClick}
-                    onEdgesChange={onEdgesChange}
-                    onConnect={onConnect}
-                    onNodeDrag={onNodeDrag}
-                    onNodeDragStop = {onDragEnd}
-                    connectionLineType={ConnectionLineType.SmoothStep}
-                    snapToGrid={true}
-                    snapGrid={[25,25]}
-                    defaultEdgeOptions={defaultEdgeOptions}
-                    edgeTypes={edgeTypes}
-                    multiSelectionKeyCode = {true ? 'ControlLeft' : 'Meta'}
-                    deleteKeyCode = {deleteKeyCodes}
-                    fitView
-                    onDrop={onDrop}
-                    onDragOver={onDragOver}
-                    attributionPosition="top-right"
-                >
+             <FullScreen handle={handle} className = {"h-100 position-relative w-100"}>
+                <div className={'h-100 '+ props.className + (handle.active?" bg-theme":" border border-theme")} ref={reactFlowWrapper}>
+                    <FlowSideBar 
+                        isDesktop = {props.isDesktop}
+                        draggableNodeTouched = {draggableNodeTouched}
+                        setDraggableNodeTouched = {setDraggableNodeTouched}    
+                    />
+                    <ReactFlow
+                        className=''
+                        nodes={nodes}
+                        edges={edges}
+                        onInit={setReactFlowInstance}
+                        onNodesChange={onNodesChange}
+                        onPaneClick={onClick}
+                        onEdgesChange={onEdgesChange}
+                        onConnect={onConnect}
+                        onNodeDrag={onNodeDrag}
+                        onNodeDragStop = {onDragEnd}
+                        connectionLineType={ConnectionLineType.SmoothStep}
+                        snapToGrid={true}
+                        snapGrid={[25,25]}
+                        defaultEdgeOptions={defaultEdgeOptions}
+                        edgeTypes={edgeTypes}
+                        nodeTypes={nodeTypes}
+                        multiSelectionKeyCode = {true ? 'ControlLeft' : 'Meta'}
+                        deleteKeyCode = {deleteKeyCodes}
+                        fitView
+                        onDrop={onDrop}
+                        onDragOver={onDragOver}
+                        attributionPosition="top-right"
+                    >
 
-                <KeyControls
-                    unselect = {unselect}
-                />
+                    <KeyControls
+                        unselect = {unselect}
+                    />
+                    
+                    <CustomControls 
+                        className='bg-theme text-theme btn-border'
+                        hasSelected = {isNodeSelected}  
+                        enterFullscreen = {handle.enter}
+                        exitFullscreen = {handle.exit}
+                        isFullscreen = {handle.active}
+                        deleteSelected = {deleteSelected}  
+                    />
                 
-                <CustomControls 
-                    className='bg-theme text-theme btn-border'
-                    hasSelected = {isNodeSelected}  
-                    deleteSelected = {deleteSelected}  
-                />
-            
-                <Background 
-                    variant = {"lines"} 
-                    color = {theme === "dark"?"#333333":"#cfcfcf"}
-                    gap = {[25,25]}
-                />
-                </ReactFlow>
-            </div>
-            
-           
+                    <Background 
+                        variant = {"lines"} 
+                        color = {theme === "dark"?"#333333":"#cfcfcf"}
+                        gap = {[25,25]}
+                    />
+                    </ReactFlow>
+                </div>
+            </FullScreen>           
         </FlowContext.Provider>
     )
    

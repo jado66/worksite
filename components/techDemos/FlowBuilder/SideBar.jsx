@@ -6,7 +6,7 @@ export default function  FlowSideBar(props){
     const sideBar = useRef()
 
     const onDragStart = (event, nodeType) => {
-        setTouched(null)
+        props.setDraggableNodeTouched(null)
         event.dataTransfer.setData('application/reactflow', nodeType);
         event.dataTransfer.effectAllowed = 'move';
     };
@@ -16,7 +16,7 @@ export default function  FlowSideBar(props){
         evt.stopPropagation();
         props.setDraggableNodeTouched(prev => {
             if (prev === type){
-                alert("same")
+                // alert("same")
                 return null
             }
             else{
@@ -54,9 +54,8 @@ export default function  FlowSideBar(props){
             >
                 <div 
                     className='d-flex flex-row '
-
                 >
-                    <h2 className='h5 mb-0 pb-2 ms-3 mt-2 pt-1 flex-grow-1 text-center text-nowrap'>Add Nodes {props.draggableNodeTouched}</h2>
+                    <h2 className='h5 mb-0 pb-2 ms-3 mt-2 pt-1 flex-grow-1 text-center text-nowrap'>Add Nodes</h2>
 
                     <button 
                         className={'m-2 p-2 border-0 d-flex align-items-center text-theme bg-theme ms-auto '}
@@ -71,45 +70,45 @@ export default function  FlowSideBar(props){
 
                 <div className='react-flow__nodes d-flex flex-lg-column flex-row overflow-auto '>
                     <div 
-                        className={"react-flow__node react-flow__node-input my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center  react-flow-drag"+(props.draggableNodeTouched === "input"? " touched":"")} 
+                        className={"react-flow__node react-flow__node-input my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center  react-flow-drag"+(props.draggableNodeTouched === "startNode"? " touched":"")} 
                         style={{position:"static !important"}} 
-                        onDragStart={(event) => onDragStart(event, 'input')} 
-                        onClick={(evt)=>handleOnClick(evt,'input')}
+                        onDragStart={(event) => onDragStart(event, 'startNode')} 
+                        onClick={(evt)=>handleOnClick(evt,'startNode')}
                         draggable
                     >
-                       <span className='align-self-center'>Start</span> 
+                       <span className={'align-self-center'+(props.draggableNodeTouched === "startNode"? " fw-bold":"")}>Start</span> 
                     </div>
 
                     {/* New style  <div className="react-flow__node react-flow__node-default react-flow__node-type1 my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center" style={{position:"static !important"}} onDragStart={(event) => onDragStart(event, 'step')} draggable> */}
                     <div 
-                        className={"react-flow__node react-flow__node-default my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center react-flow-drag"+(props.draggableNodeTouched === "step"? " touched":"")} 
+                        className={"react-flow__node react-flow__node-stepNode my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center react-flow-drag"+(props.draggableNodeTouched === "stepNode"? " touched":"")} 
                         style={{position:"static !important"}} 
-                        onClick={(evt)=>handleOnClick(evt,'step')}
-                        onDragStart={(event) => onDragStart(event, 'step')} 
+                        onClick={(evt)=>handleOnClick(evt,'stepNode')}
+                        onDragStart={(event) => onDragStart(event, 'stepNode')} 
                         draggable
                     >
-                        <span className='align-self-center'>New Step</span> 
+                        <span className={'align-self-center'+(props.draggableNodeTouched === "stepNode"? " fw-bold":"")}>New Step</span> 
                         
                     </div>
 
                     {/* New style <div className="react-flow__node react-flow__node-default react-flow__node-type2 my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center" style={{position:"static !important"}} onDragStart={(event) => onDragStart(event, 'label')} draggable> */}
                     <div 
-                        className={"react-flow__node react-flow__node-default my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center react-flow-drag"+(props.draggableNodeTouched === "label"? " touched":"")} 
+                        className={"react-flow__node react-flow__node-labelNode  my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center react-flow-drag"+(props.draggableNodeTouched === "labelNode"? " touched":"")} 
                         style={{position:"static !important"}} 
-                        onDragStart={(event) => onDragStart(event, 'label')} 
-                        onClick={(evt)=>handleOnClick(evt,'label')}
+                        onDragStart={(event) => onDragStart(event, 'labelNode')} 
+                        onClick={(evt)=>handleOnClick(evt,'labelNode')}
                         draggable
                     >
-                        <span className='align-self-center'>New Label</span> 
+                        <span className={'align-self-center'+(props.draggableNodeTouched === "labelNode"? " fw-bold":"")}>New Label</span> 
                         
                     </div>
-                    <div className={"react-flow__node react-flow__node-output my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center react-flow-drag"+(props.draggableNodeTouched === "output"? " touched":"")} 
+                    <div className={"react-flow__node react-flow__node-output my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center react-flow-drag"+(props.draggableNodeTouched === "endNode"? " touched":"")} 
                         style={{position:"static !important"}} 
-                        onDragStart={(event) => onDragStart(event, 'output')} 
-                        onClick={(evt)=>handleOnClick(evt,'output')}
+                        onDragStart={(event) => onDragStart(event, 'endNode')} 
+                        onClick={(evt)=>handleOnClick(evt,'endNode')}
                         draggable
                     >
-                        <span className='align-self-center'>End</span> 
+                        <span className={'align-self-center'+(props.draggableNodeTouched === "endNode"? " fw-bold":"")}>End</span> 
                         
                     </div>
                 </div>

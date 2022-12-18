@@ -117,14 +117,14 @@ $a3-light: map-get($custom-colors , "a3-light");
     // border-color: $fg-dark !important;
   }
 
-  .react-flow__node.react-flow__node-type1{
+  .react-flow__node.react-flow__node-stepNode{
     background-color: $a1-dark !important;
     border-radius: 150px / 150px;
         // color: $fg-dark !important;
     // border-color: $fg-light !important;
   }
 
-  .react-flow__node.react-flow__node-type2{
+  .react-flow__node.react-flow__node-labelNode  {
     background-color: $a2-dark !important;
     // color: $fg-dark !important;
     // border-color: $fg-light !important;
@@ -192,15 +192,15 @@ $a3-light: map-get($custom-colors , "a3-light");
     // border-color: $fg-light !important;
   }
 
-  .react-flow__node.react-flow__node-type1{
-    background-color: $a2-light !important;
-    color: $fg-light !important;
+  .react-flow__node.react-flow__node-stepNode{
+    background-color: $a1-light !important;
+        // color: $fg-dark !important;
     // border-color: $fg-light !important;
   }
 
-  .react-flow__node.react-flow__node-type2{
-    background-color: $a1-light !important;
-    color: $fg-light !important;
+  .react-flow__node.react-flow__node-labelNode  {
+    background-color: $a2-light !important;
+    // color: $fg-dark !important;
     // border-color: $fg-light !important;
   }
 
@@ -211,11 +211,16 @@ $a3-light: map-get($custom-colors , "a3-light");
 }
 
 .react-flow__node.selected{
-  opacity: 75%;
+  filter: brightness(1.25);
+
+  span{
+    font-weight: 700;
+  }
 }
 
 .react-flow__node{
   height: 50px;
+  width: 150px;
 }
 
 .react-flow-drag{
@@ -223,7 +228,7 @@ $a3-light: map-get($custom-colors , "a3-light");
 }
 
 .react-flow__node.touched{
-  background-color: red !important;
+  filter: brightness(1.25);
 }
 
 /* react flow side nav */

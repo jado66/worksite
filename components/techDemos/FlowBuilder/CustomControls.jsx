@@ -1,6 +1,6 @@
 import { Controls, ControlButton, useReactFlow, useStore, useStoreApi } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { Fullscreen, ZoomIn, ZoomOut, Lock, Unlock, Trash } from 'react-bootstrap-icons';
+import { Fullscreen, FullscreenExit, ZoomIn, ZoomOut, Lock, Unlock, Trash } from 'react-bootstrap-icons';
 import { useState, useEffect } from 'react';
 
 const isInteractiveSelector = (s) => s.nodesDraggable && s.nodesConnectable && s.elementsSelectable;
@@ -61,12 +61,7 @@ export default function CustomControls(props) {
             >
             <ZoomOut/>
         </ControlButton>
-        <ControlButton 
-            onClick={onFitViewHandler}
-            className ={"btn rounded-0"}
-        >
-            <Fullscreen/>
-        </ControlButton>
+        
         <ControlButton 
             onClick={onToggleInteractivity}
             className ={"btn rounded-0"}
@@ -85,6 +80,17 @@ export default function CustomControls(props) {
             disabled = {!props.hasSelected}
         >
             <Trash/>
+        </ControlButton>
+        <ControlButton 
+            // onClick={onFitViewHandler}
+            onClick={props.isFullscreen?props.exitFullscreen:props.enterFullscreen}
+            className ={"btn rounded-0"}
+        >
+            { props.isFullscreen ? 
+                <FullscreenExit/>
+                :
+                <Fullscreen/>
+            }
         </ControlButton>
     </Controls>
   );
