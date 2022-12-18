@@ -46,7 +46,7 @@ export default function  FlowSideBar(props){
                 <div 
                 id="mySidenav" 
                 tabIndex={0}
-                className="sidenav border-lg-start border-bottom bg-theme border-theme rounded-3" 
+                className="sidenav border-lg-start border bg-theme border-theme rounded-3" 
                 style={{zIndex:3}} 
                 ref={sideBar}
                 onClick = {(evt)=>handleOnClick(evt,null)}
@@ -66,7 +66,7 @@ export default function  FlowSideBar(props){
                         <XSquareFill/>
                     </button>
                 </div>
-                <hr className='mx-2 my-0 mb-1'/>
+                <hr className='mx-2 my-0 mb-1 opacity-100'/>
 
                 <div className='react-flow__nodes d-flex flex-lg-column flex-row overflow-auto '>
                     <div 
@@ -81,7 +81,7 @@ export default function  FlowSideBar(props){
 
                     {/* New style  <div className="react-flow__node react-flow__node-default react-flow__node-type1 my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center" style={{position:"static !important"}} onDragStart={(event) => onDragStart(event, 'step')} draggable> */}
                     <div 
-                        className={"react-flow__node react-flow__node-stepNode my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center react-flow-drag"+(props.draggableNodeTouched === "stepNode"? " touched":"")} 
+                        className={"react-flow__node react-flow__node-stepNode border border-theme rounded my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center react-flow-drag"+(props.draggableNodeTouched === "stepNode"? " touched":"")} 
                         style={{position:"static !important"}} 
                         onClick={(evt)=>handleOnClick(evt,'stepNode')}
                         onDragStart={(event) => onDragStart(event, 'stepNode')} 
@@ -93,7 +93,7 @@ export default function  FlowSideBar(props){
 
                     {/* New style <div className="react-flow__node react-flow__node-default react-flow__node-type2 my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center" style={{position:"static !important"}} onDragStart={(event) => onDragStart(event, 'label')} draggable> */}
                     <div 
-                        className={"react-flow__node react-flow__node-labelNode  my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center react-flow-drag"+(props.draggableNodeTouched === "labelNode"? " touched":"")} 
+                        className={"react-flow__node react-flow__node-labelNode border border-theme rounded my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center react-flow-drag"+(props.draggableNodeTouched === "labelNode"? " touched":"")} 
                         style={{position:"static !important"}} 
                         onDragStart={(event) => onDragStart(event, 'labelNode')} 
                         onClick={(evt)=>handleOnClick(evt,'labelNode')}
@@ -102,7 +102,7 @@ export default function  FlowSideBar(props){
                         <span className={'align-self-center'+(props.draggableNodeTouched === "labelNode"? " fw-bold":"")}>New Label</span> 
                         
                     </div>
-                    <div className={"react-flow__node react-flow__node-output my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center react-flow-drag"+(props.draggableNodeTouched === "endNode"? " touched":"")} 
+                    <div className={"react-flow__node react-flow__node-output border border-theme my-lg-3 my-1 mx-lg-auto mx-2 fs-lg-5 fs-6 p-1 d-flex justify-content-center react-flow-drag"+(props.draggableNodeTouched === "endNode"? " touched":"")} 
                         style={{position:"static !important"}} 
                         onDragStart={(event) => onDragStart(event, 'endNode')} 
                         onClick={(evt)=>handleOnClick(evt,'endNode')}
