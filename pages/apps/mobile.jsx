@@ -14,7 +14,12 @@ export default function MobileApps() {
         subtitle1 = "Do you need a website for personal use or your small business? We have you covered. Our best Engineers can make sure you get exactly what you are looking for."
         subtitle2 = "Will your site need data integration, interactivity, and dynamic rendering? Our team of experienced Engineers can help you create your vision."
         subtitle3 = " With our experience and expertise and your vision we can create a great team."
-        btnText3 = "Get Started"
+        btn3 = {{
+          text: "Get Started",
+          link: true,
+          href: "/schedule"
+
+        }}
         icon1 = {<Apple/>}
         icon2 = {<Android2/>}
         icon3 = {<EmojiSmile/>}

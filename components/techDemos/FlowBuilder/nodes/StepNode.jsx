@@ -2,6 +2,7 @@ import React, { memo, useContext, useRef } from 'react';
 import { Handle } from 'reactflow';
 import ContentEditable from 'react-contenteditable'
 import { FlowContext } from '../ReactFlow';
+import { Dash, Plus } from 'react-bootstrap-icons';
 
 /* eslint-disable react/display-name */
 export default memo(({ data, isConnectable, id }) => {
@@ -18,8 +19,12 @@ export default memo(({ data, isConnectable, id }) => {
         type="target"
         position="left"
         isConnectable={isConnectable}
-      />
-      <div className='h-100 d-flex justify-content-center align-items-center border border-theme rounded'>
+        // className = {"f"}
+        // className = {' position-rela'}
+      >
+        <Dash className='flex-grow-1 h-100 text-theme hidden-lg hidden-lg'/>
+      </Handle>
+      <div className='h-100 d-flex justify-content-center align-items-center'>
         <ContentEditable
           innerRef={ref}
           html={data.label} // innerHTML of the editable div
@@ -33,7 +38,9 @@ export default memo(({ data, isConnectable, id }) => {
         position="right"
         id="a"
         isConnectable={isConnectable}
-      />
+      >
+        <Plus className='flex-grow-1 h-100 text-theme hidden-lg'/>
+      </Handle>
     </>
   );
 });

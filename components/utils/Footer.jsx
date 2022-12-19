@@ -1,8 +1,13 @@
 import Link from "next/link";
+import { useContext } from "react";
+import { ThemeProvider } from "./ThemeProvider";
 
 export default function Footer(){
+    
+    const {theme} = useContext(ThemeProvider)
+    
     return(
-        <footer className="footer mt-auto py-3 bg-a2" >
+        <footer className={"footer mt-auto py-3 bg-a2 theme-"+theme} >
             <div className="container">
                 <div className="d-flex row text-center">
                     <div className="col text-theme-inv">

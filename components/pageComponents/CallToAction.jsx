@@ -20,10 +20,8 @@ export default function CallToAction(props){
                 "A 15-30 conversation to with one of our top engineers. At no cost, discuss your vision and your needs."
             }
             </p>
-            <Link href = "/schedule">
-                <button className="text-uppercase btn border-theme text-theme btn-lg mx-5 mt-2  ">
-                    Get Started Today
-                </button> 
+            <Link className="text-uppercase btn btn-border btn-lg mx-5 mt-2" href = "/schedule">
+                Get Started Today
             </Link>
         </div>
     )

@@ -3,6 +3,13 @@ $dark: #0A0A0A;
 $enable-shadows: true;
 $prefix: "mo-";
 
+$hover-bg-dark: 3;
+$hover-fg-dark: .8;
+
+$hover-bg-light: .8;
+$hover-fg-light: 3;
+
+
 // Create your own map
 $custom-colors: (
   "fg-dark":#00f2ff,
@@ -55,14 +62,14 @@ $a3-light: map-get($custom-colors , "a3-light");
     &:hover {
       background-color: $fg-light;
       color: $bg-light !important;
-  }
+    }
   }
 }
 
 .theme-dark{
   .border-theme{
     border-color: $fg-dark !important;
-    opacity: 1
+    opacity: 1; 
   }
 
   .bg-a1{
@@ -85,6 +92,11 @@ $a3-light: map-get($custom-colors , "a3-light");
   .btn-border{
     border-color: $fg-dark;
     color: $fg-dark;
+    background-color: $bg-dark;
+
+    &:hover {
+      filter: brightness($hover-bg-dark);
+    }
   }
 
   .text-theme{
@@ -104,6 +116,16 @@ $a3-light: map-get($custom-colors , "a3-light");
 
   a{
     color: $fg-dark;
+    text-decoration: none;
+    &:hover {
+      filter: brightness($hover-fg-dark);
+    }
+  }
+
+  .text-theme-inv > a{
+    &:hover {
+      filter: brightness($hover-bg-dark);
+    }
   }
 
   .react-flow__controls-button{
@@ -140,7 +162,10 @@ $a3-light: map-get($custom-colors , "a3-light");
 
   .border-theme{
     border-color: $fg-light !important;
-    opacity: 1
+    opacity: 1;
+
+    
+  
   }
 
   .bg-theme{
@@ -174,11 +199,21 @@ $a3-light: map-get($custom-colors , "a3-light");
 
   .btn-border{
     border-color: $fg-light;
-    color:$fg-light
+    color:$fg-light;
+    background-color: $bg-light;
+
+    &:hover {
+      filter: brightness($hover-bg-light);
+    }
   }
 
   a{
-    color: $bg-light;
+    color: $fg-light;
+    text-decoration: none;
+
+    &:hover {
+      filter: brightness($hover-fg-light);
+    }
   }
 
   .react-flow__controls-button{
@@ -264,12 +299,38 @@ $a3-light: map-get($custom-colors , "a3-light");
   stroke-width: 2px !important;
 }
 
+.react-flow__handle{
+  .hidden-lg{
+    display: none ;
+  }
+}
+
+.react-flow__edge-path, 
+.react-flow__connection-path
+{
+  stroke: $fg-dark !important;
+}
+
 @media (max-width: 991px) {
   .react-flow__handle {
-    width: 10px !important;
+    width: 20px !important;
     height: 20px !important;
     border-radius: 2px !important;
+    display: flex;
+  
+    .hidden-lg{
+      display:inline
+    }
 
+    
+  }
+
+ 
+
+  .connecting{
+    width: 15px !important;
+    height: 30px !important;
+    transition-duration: .15s;
   }
 
   .react-flow-drag {

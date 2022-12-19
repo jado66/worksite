@@ -255,7 +255,6 @@ const Flow = (props) => {
              <FullScreen handle={handle} className = {"h-100 position-relative w-100"}>
                 <div className={'h-100 '+ props.className + (handle.active?" bg-theme":" border border-theme")} ref={reactFlowWrapper}>
                     <FlowSideBar 
-                        isDesktop = {props.isDesktop}
                         draggableNodeTouched = {draggableNodeTouched}
                         setDraggableNodeTouched = {setDraggableNodeTouched}    
                     />
@@ -289,7 +288,7 @@ const Flow = (props) => {
                     />
                     
                     <CustomControls 
-                        className='bg-theme text-theme btn-border'
+                        className='bg-theme text-theme '
                         hasSelected = {isNodeSelected}  
                         enterFullscreen = {handle.enter}
                         exitFullscreen = {handle.exit}

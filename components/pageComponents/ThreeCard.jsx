@@ -21,8 +21,8 @@ export default function ThreeCard(props){
           </div>
           <div className="card-body">
             {props.body2}
-            <Link href={"/schedule"}>
-              <button type="button" className="w-100 btn btn-lg btn-border">Get started</button>
+            <Link className = "btn btn-lg btn-border w-100" href={"/schedule"}>
+              Get started
             </Link>
           </div>
         </div>

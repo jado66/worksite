@@ -6,10 +6,10 @@ import { useContext, useState } from "react";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { ThemeProvider } from "../../components/utils/ThemeProvider";
 import ReactFlowDemo from "../../components/techDemos/FlowBuilder/ReactFlow";
+import Link from "next/link";
 
 export default function WebApps() {
   
-  const isDesktop = useMediaQuery('(min-width: 994px)')
   const [isViewMobile, setViewMobile] = useState(false)
   const {theme, invertTheme} = useContext(ThemeProvider)
 
@@ -35,7 +35,13 @@ export default function WebApps() {
         subtitle1 = "Do you need a website for personal use or your small business? We have you covered. Our best Engineers can make sure you get exactly what you are looking for."
         subtitle2 = "Will your site need data integration, interactivity, and dynamic rendering? Our team of experienced Engineers can help you create your vision."
         subtitle3 = " With our experience and expertise and your vision we can create a great team."
-        btnText3 = "Get Started"
+        // btnText3 = "Get Started"
+        btn3 = {{
+          text: "Get Started",
+          link: true,
+          href: "/schedule"
+
+        }}
         icon1 = {<WindowSidebar/>}
         icon2 = {<Kanban/>}
         icon3 = {<CodeSquare/>}
@@ -69,25 +75,33 @@ export default function WebApps() {
 
         <hr className="bg-brand opacity-100 my-4"/>
 
-        <h1 className="text-center h3 mt-4 mb-4">Technical Demos</h1>
+        <h1 className="text-center h3 mt-4 mb-4">Web Animation</h1>
 
-        <div className="d-flex row px-lg-4 gx-0">
-          <div className={'mb-2 rounded-3 d-flex justify-content-center gx-0 '+(isViewMobile?"col-12":" col-12 col-lg-8  order-first")} style={{minHeight:"400px"}}>
-            <ReactFlowDemo 
-              className = {"flex-grow-1 rounded-3"}
-              isDesktop = {isDesktop}  
-            />
+        <div className="d-flex row px-4">
+          <div className='col-6 bg-a2 rounded-3 d-flex justify-content-center' style={{minHeight:"200px"}}>
+            <h5 className='text-theme-inv text-center my-auto'>Animation using GreenSock</h5>
           </div>
           <div className="col">
-            <h3 className="text-center pt-lg-0">Flow Builder</h3>
-            <p className="px-3">
-              React Flow is a library for building node-based graphs. You can easily implement custom node types and it comes with components like a mini-map and graph controls.
+            <p className="pe-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est sem, pretium vel lacinia sit amet, laoreet iaculis lorem. Fusce laoreet ullamcorper urna, rhoncus condimentum diam venenatis vel. Sed hendrerit neque sit amet ipsum condimentum, vel laoreet erat fringilla. Vivamus laoreet mattis nunc, at laoreet justo varius id. Donec luctus maximus feugiat. Phasellus ligula urna, pharetra vel nibh ac, iaculis elementum dolor. Vivamus sollicitudin libero sapien, ut lacinia enim suscipit quis. Etiam in convallis libero. In condimentum velit et elit eleifend pulvinar. Nunc massa ipsum, efficitur auctor augue vel, maximus ultrices dui. In pellentesque mauris id nisl vestibulum, et accumsan metus aliquet. Fusce consectetur dapibus quam, eu gravida est mollis vel. Duis tempor, est nec condimentum malesuada, mi orci iaculis augue, a ultricies ligula arcu a nisl. Vestibulum euismod dictum ante vitae semper. Integer malesuada convallis quam sed blandit. Proin egestas augue et lectus tincidunt tincidunt.
             </p>
-            <p className="px-3">
-              Try creating your own flow diagram.
-            </p>
-          </div>         
+          </div>
         </div>
+
+        <hr className="bg-brand opacity-100 my-4"/>
+
+        <h1 className="text-center h3 mt-4 mb-4">Technical Demos</h1>
+
+        <div className="d-flex flex-column px-4">
+          <p className="pe-3">
+            For examples of what our engineers can create check out our technical demos. Each demo was produced specifically for this website.
+            
+          </p>
+          <Link className="text-uppercase btn btn-border btn-lg mx-5 mt-2 " href = "/tech-demos">
+              Check Out Our Demos
+            </Link>
+        </div>
+        
       </div>
       <hr className="bg-brand opacity-100 my-4"/>
 

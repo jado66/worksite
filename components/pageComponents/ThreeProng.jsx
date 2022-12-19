@@ -36,10 +36,18 @@ export default function ThreeProng(props){
                 <div>
                     <h3 className="fs-3">{props.title3}</h3>
                     <p>{props.subtitle3}</p>
-                    { props.btnText3 && 
-                        <a href="#" className="btn btn-border">
-                            {props.btnText3}
-                        </a>}
+                    {/* {JSON.stringify(props.btn3)} */}
+                    {props.btn3 && 
+                        props.btn3.link? 
+                        <a className="btn btn-border" href={props.btn3.href}>
+                            {props.btn3.text}
+                        </a>
+                        :
+                        <button>
+                            {props.btn3.text}
+                        </button>
+                    }
+                   
                 </div>
             </div>
         </div>
