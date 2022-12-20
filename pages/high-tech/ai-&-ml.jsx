@@ -1,7 +1,7 @@
 import Container from "../../components/utils/Container";
 import CallToAction from "../../components/pageComponents/CallToAction";
 import Typewriter from "react-typewriter-animate";
-import { chatText } from "./chatText";
+import chatText from "./chatText";
 import "react-typewriter-animate/dist/Typewriter.css";
 import { useState } from "react";
 
