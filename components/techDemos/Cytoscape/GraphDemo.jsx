@@ -50,6 +50,7 @@ const initialData = [
     {
         "name": "susan",
         "friends": [
+            "john",
             "sally",
             "mary",
             "marco"
