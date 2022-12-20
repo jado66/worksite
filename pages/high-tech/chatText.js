@@ -1,4 +1,4 @@
-export const chatText = [
+const chatText = [
     `JD - Can you explain why we can't see black holes?`,
 
     `Bot - Black holes are objects in space that are so dense and have such strong gravitational pull that nothing, not even light, can escape from them. Because light is the only way for us to see things, black holes are invisible to the naked eye and cannot be directly observed.
@@ -16,3 +16,5 @@ But scientists can still find out that black holes are there by looking at how t
 
 So even though we can't see black holes, we can still learn about them and know they are there!`
 ]
+ 
+ export default chatText;
