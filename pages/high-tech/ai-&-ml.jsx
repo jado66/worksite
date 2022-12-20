@@ -22,7 +22,7 @@ export default function BlockchainAndCrypto() {
     
     return (
     <Container>
-      <h1 className="text-center h3 mt-4 mb-4">Artificial Intelligence & Machine Learning</h1>
+      <h1 className="text-center h3 mt-4 mb-4">Artificial Intelligence &amp; Machine Learning</h1>
       
       <div className="d-flex row px-4">
         <div className="col">
