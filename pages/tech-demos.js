@@ -1,9 +1,6 @@
 import Container from '../components/utils/Container';
 import CallToAction from '../components/pageComponents/CallToAction';
 import ReactFlowDemo from '../components/techDemos/FlowBuilder/ReactFlow';
-import CytoWrapper from '../components/techDemos/Cytoscape/CytoWrapper';
-import CytoscapeDemo from '../components/techDemos/Cytoscape/CytoScapeDemo';
-import Test from '../components/techDemos/Cytoscape/GraphDemo';
 import GraphDemo from '../components/techDemos/Cytoscape/GraphDemo';
 
 export default function Index() {
