@@ -2,27 +2,18 @@ import { XCircle} from 'react-bootstrap-icons'
 
 export default function FriendsDataManager(props){
     return(
-        <div className={"d-flex flex-row "+props.className}>            
+        <div className={"d-flex flex-column "+props.className}>            
             {/* {JSON.stringify(props.data)} */}
-            <div className=" flex-column d-flex border-end p-2">
-                <h3 className="h5 text-center">Users</h3>
-                {
-                    props.data.map((el)=>{
-                        return(
-                            <span 
-                                key = {el.name+"span"} 
-                                className="fs-6 text-capitalize my-1"
-                                style={{height:"30px"}}
-                            >
-                                {el.name}
-                            </span>
-                        )
-                    })
-                }
-            </div>
+            <div className='flex-row d-flex border-bottom border-theme'>
+                <div className="col-4 border-end p-2">
+                    <h3 className="h5 text-center">Users</h3>
+                </div>
 
-            <div className=" flex-column d-flex flex-grow-1 text-start p-2 scroll-auto">
-                <h3 className="h5 text-center">Friends</h3>
+                <div className="col-8 text-start p-2">
+                    <h3 className="h5 text-center">Friends</h3>
+                </div>
+            </div>
+            <div>
                 {
                     props.data.map((el)=>{
                         return(
@@ -40,6 +31,9 @@ export default function FriendsDataManager(props){
     )
 }
 
+
+            
+
 const FriendGroup = (props) => {
     
     const onDeleteClick = (evt,friend) => {
@@ -48,15 +42,24 @@ const FriendGroup = (props) => {
         props.removeFriendFromList(props.user,friend)
     }
     return(
-            <div className="my-1" style={{height:"30px"}}>
-                <div className="flex-row overflow-auto scroll-hide text-nowrap d-flex col-">
+
+        <div className='flex-row d-flex'>
+            <div className="col-4 border-end pt-2">
+                <span className="h5 text-center text-capitalize ms-4">{props.user}</span>
+            </div>
+
+            <div className="col-8 text-start mt-2">
+                <div className="scroll-hide text-nowrap" style={{overflowX:"auto", height:30}}> 
                 {
                     props.friends.map((friend)=>{
                         return(
                             <div 
                                 key = {props.user+"-"+friend} 
-                                className="fs-6 ms-1 badge rounded-pill bg-primary py-1  "
+        
+                                    className="col d-inline-block fs-6 ms-1 badge rounded-pill bg-primary py-1  "
+                                style={{float:"none"}}
                             >
+                                
                                 <span>
                                     {friend.charAt(0).toUpperCase() + friend.slice(1)}
                                 </span>
@@ -72,8 +75,16 @@ const FriendGroup = (props) => {
                     })
                 }
                 </div>
-            
+                
+       
             </div>
+        </div>
+        
+
+
+        
+            
             
     )
 }
+

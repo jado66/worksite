@@ -185,7 +185,7 @@ export default function GraphDemo(props){
 
     return (
         <div className="mx-4 col-12 d-flex flex-grow-1 flex-lg-row flex-column border border-theme">
-            <div className="col-lg-4 col-12">
+            <div className="col-lg-4 col-12 border-end">
                 <h2 className="text-center mt-2">Data</h2>
                 {/* {JSON.stringify(data,null,1)} */}
                 <FriendsDataManager
