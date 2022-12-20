@@ -20,10 +20,8 @@ export default memo(({ data, isConnectable, id }) => {
         type="target"
         position="left"
         isConnectable={isConnectable}
-        // className = {"f"}
-        // className = {' position-rela'}
       >
-        <Dash className='flex-grow-1 h-100 text-theme hidden-lg'/>
+        <Dash className='flex-grow-1 h-100 text-theme hidden-lg pe-none'/>
       </Handle>
       <div className='h-100 d-flex justify-content-center align-items-center border border-theme rounded'>
       <ContentEditable
@@ -40,7 +38,7 @@ export default memo(({ data, isConnectable, id }) => {
         id="a"
         isConnectable={isConnectable}
       >
-        <Plus className='flex-grow-1 h-100 text-theme hidden-lg'/>
+        <Plus className='flex-grow-1 h-100 text-theme hidden-lg pe-none'/>
       </Handle>
     </>
   );

@@ -10,6 +10,7 @@ export default function EdgeButton({
   id,
   sourceX,
   sourceY,
+  selected,
   targetX,
   targetY,
   sourcePosition,
@@ -54,7 +55,7 @@ export default function EdgeButton({
             onMouseLeave={()=>setShowButton(false)}
         >
             
-            <div className='text-theme h-100 p-2 d-flex align-items-center' style={{visibility:showButton?"":"hidden"}}>
+            <div className='text-theme h-100 p-2 d-flex align-items-center' style={{visibility:showButton || selected?"":"hidden"}}>
                 <div 
                     onClick={onEdgeClick}
                     className='h-100 flex-grow-1 d-flex align-items-center justify-content-center'
