@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import AppBase from '../components/utils/AppBase';
 import { ThemeProvider } from '../components/utils/ThemeProvider'
 
+
+const defaultTheme = Theme.Dark 
 function MyApp({ Component, pageProps, session }) {
   
   const isUnderConstruction = true //broken
@@ -34,9 +36,19 @@ function MyApp({ Component, pageProps, session }) {
 
     const theme = localStorage.getItem("theme")
     // alert(theme)
-    setTheme(theme === Theme.Dark ? Theme.Dark : Theme.Light)
-    setFg(theme === "light"? "fg-light" : "fg-dark")
-    setBg(theme === "light" ? "bg-light" : "bg-dark")
+
+    if (theme){
+      setTheme(theme === Theme.Dark ? Theme.Dark : Theme.Light)
+      setFg(theme === "light"? "fg-dark" : "fg-light")
+      setBg(theme === "light" ? "bg-dark" : "bg-light")
+    }
+    else{
+      setTheme(defaultTheme === Theme.Dark ? Theme.Dark : Theme.Light)
+      setFg(defaultTheme === "light"? "fg-dark" : "fg-light")
+      setBg(defaultTheme === "light" ? "bg-dark" : "bg-light")
+      localStorage.setItem("theme", defaultTheme)
+    }
+
   }, []); 
 
 
