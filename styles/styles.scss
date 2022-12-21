@@ -326,6 +326,16 @@ $a3-light: map-get($custom-colors , "a3-light");
   scrollbar-width: none;  /* Firefox */
 }
 
+// Carousal
+.control-dots{
+  top:0%;
+  height: 20px !important;
+}
+
+.control-arrow{
+  height: 20px !important;
+}
+
 @media (max-width: 991px) {
   .react-flow__handle {
     width: 20px !important;

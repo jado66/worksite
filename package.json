@@ -25,6 +25,7 @@
     "react-device-detect": "^2.2.2",
     "react-dom": "18.2.0",
     "react-full-screen": "^1.1.1",
+    "react-responsive-carousel": "^3.2.23",
     "react-social-media-embed": "^2.2.9",
     "react-table": "^7.8.0",
     "react-typewriter-animate": "^1.2.3",
