@@ -39,13 +39,13 @@ function MyApp({ Component, pageProps, session }) {
 
     if (theme){
       setTheme(theme === Theme.Dark ? Theme.Dark : Theme.Light)
-      setFg(theme === "light"? "fg-dark" : "fg-light")
-      setBg(theme === "light" ? "bg-dark" : "bg-light")
+      setFg(theme === "dark"? "fg-dark" : "fg-light")
+      setBg(theme === "dark" ? "bg-dark" : "bg-light")
     }
     else{
       setTheme(defaultTheme === Theme.Dark ? Theme.Dark : Theme.Light)
-      setFg(defaultTheme === "light"? "fg-dark" : "fg-light")
-      setBg(defaultTheme === "light" ? "bg-dark" : "bg-light")
+      setFg(defaultTheme === "dark"? "fg-dark" : "fg-light")
+      setBg(defaultTheme === "dark" ? "bg-dark" : "bg-light")
       localStorage.setItem("theme", defaultTheme)
     }
 
