@@ -11,19 +11,38 @@ function MyApp({ Component, pageProps, session }) {
   
   const isUnderConstruction = true //broken
 
-  const [theme, setTheme] = useState(Theme.Dark)
+  const [theme, setTheme] = useState(null)
   const [fg, setFg] = useState('fg-dark')
   const [bg, setBg] = useState('bg-dark')
 
   const invertTheme = () => {
-    setTheme(prev => prev === Theme.Dark ? Theme.Light : Theme.Dark)
+
+    setTheme(prev => {
+
+      const newState = prev === Theme.Dark ? Theme.Light : Theme.Dark
+      localStorage.setItem("theme", newState);
+
+      return (newState)
+    })
+      
     setFg(prev => prev === "fg-dark"? "fg-light" : "fg-dark")
     setBg(prev => prev === "bg-dark" ? "bg-light" : "bg-dark")
   }
 
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
+
+    const theme = localStorage.getItem("theme")
+    // alert(theme)
+    setTheme(theme === Theme.Dark ? Theme.Dark : Theme.Light)
+    setFg(theme === "light"? "fg-light" : "fg-dark")
+    setBg(theme === "light" ? "bg-light" : "bg-dark")
   }, []); 
+
+
+  if (!theme){
+    return null
+  }
 
   return (
     

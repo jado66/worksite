@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react"
 import { useContext, useEffect, useState } from "react"
 import { signOut } from "next-auth/react"
 import { ThemeProvider } from "./ThemeProvider"
+import { CloudMoon, Sun } from 'react-bootstrap-icons';
 
 export default function Navbar(props){
     
@@ -36,7 +37,9 @@ export default function Navbar(props){
     return(
         <nav className={"navbar navbar-expand-lg border-bottom border-2 px-5 navbar-"+theme+ " bg-"+ bg + " border-"+fg+" theme-"+theme} style={{zIndex:2}}>
             <div className="container-fluid">
+                
                 <Link className={"navbar-brand text-theme"} href="/">{businessName}</Link>
+                {theme}
                 <button 
                     className={"border-opacity-50 navbar-toggler"}
                     type="button" 
@@ -89,6 +92,20 @@ export default function Navbar(props){
 
                     {
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li>
+                                <button 
+                                    className={"nav-link text-theme btn border-0 shadow-none h-100 d-flex align-items-center"} 
+                                    onClick = {()=>{invertTheme()}}
+                                >
+                                    {theme === 'dark'
+                                    ?
+                                        <Sun/>
+                                    :
+                                        <CloudMoon/>
+                                    }
+                                    
+                                </button>
+                            </li>
                             {
                                 session && (
                                     <li className="nav-item dropdown">
@@ -108,6 +125,7 @@ export default function Navbar(props){
                                     </li>
                                 )
                             }
+                            
                             {hasLoggedIn && (  
                                 <>
                                     {
