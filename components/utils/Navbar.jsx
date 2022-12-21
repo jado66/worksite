@@ -39,7 +39,6 @@ export default function Navbar(props){
             <div className="container-fluid">
                 
                 <Link className={"navbar-brand text-theme"} href="/">{businessName}</Link>
-                {theme}
                 <button 
                     className={"border-opacity-50 navbar-toggler"}
                     type="button" 
