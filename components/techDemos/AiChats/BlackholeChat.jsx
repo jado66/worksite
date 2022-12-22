@@ -1,6 +1,6 @@
 import Typewriter from "react-typewriter-animate";
 import "react-typewriter-animate/dist/Typewriter.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 const chatText = [
@@ -36,217 +36,233 @@ export default function BlackholeChat (props) {
             return prev
         })
     }
+
+    useEffect(()=>{
+
+        setChatStep(0)
+        setStart(false)
+    }, [props.reset])
     
     return(
-        <div className="px-sm-4">
-        <div className='col-sm-12 d-flex flex-column justify-content-start mb-4 text-start ' style={{minHeight:"200px"}}>
-            <h3 className="text-center">Bot explains a Black Hole</h3>
+        <div className="border border-theme rounded-5">
+            <div className='col-sm-12 d-flex flex-column justify-content-start mb-4 text-start ' style={{minHeight:"200px"}}>
+                <h3 className="text-center mt-3">Bot explains a Black Hole</h3>
 
-            { 
-                !start &&
-                    <button 
-                        className="btn border-theme text-theme mt-3"
-                        onClick={()=>setStart(true)}
-                    >
-                        Start Chat AI Example
-                    </button>
-            }
+                { 
+                    !start &&
+                        <button 
+                            className="btn border border-theme text-theme mt-3 mx-auto"
+                            style={{width:"fit-content"}}
+                            onClick={()=>setStart(true)}
+                        >
+                            Start Chat AI Example
+                        </button>
+                }
 
-            {
-                start && 
-                <div className="d-flex flex-row py-2">
-                    <div className="col-sm-1 col-2">
-                        <div className="border border-theme badge text-theme d-block ms-auto me-3" style={{width:"40px"}}>
-                            JD
+                {
+                    start && 
+                    <div className="d-flex px-sm-4 flex-row py-2">
+                        <div className="col-sm-1 col-2">
+                            <div className="border border-theme badge text-theme d-block ms-auto me-3" style={{width:"40px"}}>
+                                JD
+                            </div>
+                        </div>
+                        <div className="col-sm-11 col-10">
+                            {
+                                chatStep === 0 ?
+                                    <Typewriter
+                                        dataToRotate={[
+                                        [{ type: "word", text: chatText[0] },
+                                        {
+                                            type: "action",
+                                            action: "function",
+                                            func: () => {
+                                                console.log(1)
+                                                nextStep(1)
+                                            },
+                                            wait: 1000
+                                            }
+                                        ]]}
+                                        cursor = {{
+                                            char :chatStep === 0 && start?"|":""
+                                        }}
+                                        maxTypeSpeed = {40}
+                                        typeVariance = {10}
+                                        containerClass = " d-inline-block"
+                                        
+                                        start = {start}
+                                        loop = {false}
+                                    /> 
+                                :
+                                <span className="Typewriter-content py-2">{chatText[0]}</span>
+                            }
                         </div>
                     </div>
-                    <div className="col-sm-11 col-10">
-                        {
-                            chatStep === 0 ?
+                }
+
+                {
+                    start && chatStep > 0 &&
+                    <div className="d-flex px-sm-4 flex-row py-2 bg-theme-shade">
+                        <div className="col-sm-1 col-2">
+                            <div className="border border-theme badge text-theme d-block ms-auto me-3" style={{width:"40px"}}>
+                                Bot
+                            </div>
+                        </div>
+                        <div className="col-sm-11 col-10">
+                            {
+                                chatStep === 1 ?
                                 <Typewriter
                                     dataToRotate={[
-                                    [{ type: "word", text: chatText[0] },
+                                    [
+                                        { type: "word", text: chatText[1] },
+                                        { type: "word", text: `<br/><br/>`, override: { maxTypespeed: 0 } },
+                                        { type: "word", text: chatText[2] },
+                                        { type: "word", text: `<br/><br/>`, override: { maxTypespeed: 0 } },
+                                        { type: "word", text: chatText[3] },
+                                        { type: "word", text: `<br/><br/>`, override: { maxTypespeed: 0 } },
+                                        { type: "word", text: chatText[4] },
+                                        {
+                                            type: "action",
+                                            action: "function",
+                                            func: () => {
+                                                console.log(2)
+                                                nextStep(2)
+                                            },
+                                            wait: 1000
+                                            }
+                                        ]
+                                    ]}
+                                    cursor = {{
+                                        char :chatStep === 1 && start?"|":""
+                                    }}
+                                    maxTypeSpeed = {40}
+                                    typeVariance = {10}
+                                    containerClass = "py-2"
+                        
+                                    start = {start}
+                                    loop = {false}
+                                /> 
+                                :
+                                <div className="Typewriter-content py-2">
+                                    <span>{chatText[1]}</span>
+                                    <br/><br/>
+                                    <span>{chatText[2]}</span>
+                                    <br/><br/>
+                                    <span>{chatText[3]}</span>
+                                    <br/><br/>
+                                    <span>{chatText[4]}</span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+
+                {
+                    start && chatStep > 1 &&
+                    <div className="d-flex px-sm-4  flex-row py-2">
+                        <div className="col-sm-1 col-2">
+                            <div className="border border-theme badge text-theme d-block ms-auto me-3" style={{width:"40px"}}>
+                                JD
+                            </div>
+                        </div>
+                        <div className="col-sm-11 col-10">
+                            {
+                                chatStep === 2 ?
+                                <Typewriter
+                                    dataToRotate={[
+                                    [{ type: "word", text: chatText[5] },
                                     {
                                         type: "action",
                                         action: "function",
                                         func: () => {
-                                            console.log(1)
-                                            nextStep(1)
+                                            console.log(3)
+                                            nextStep(3)
                                         },
                                         wait: 1000
                                         }
                                     ]]}
                                     cursor = {{
-                                        char :chatStep === 0 && start?"|":""
+                                        char :chatStep === 2 && start?"|":""
                                     }}
                                     maxTypeSpeed = {40}
                                     typeVariance = {10}
-                                    containerClass = "py-4 d-inline-block"
-                                    
+                                    containerClass = "py-2"
+                        
                                     start = {start}
                                     loop = {false}
                                 /> 
-                            :
-                            <span className="Typewriter-content py-2">{chatText[0]}</span>
-                        }
-                    </div>
-                </div>
-            }
-
-            {
-                start && chatStep > 0 &&
-                <div className="d-flex flex-row py-2">
-                    <div className="col-sm-1 col-2">
-                        <div className="border border-theme badge text-theme d-block ms-auto me-3" style={{width:"40px"}}>
-                            Bot
+                                :
+                                <span className="Typewriter-content py-2">{chatText[5]}</span>
+                            }
                         </div>
                     </div>
-                    <div className="col-sm-11 col-10">
-                        {
-                            chatStep === 1 ?
-                            <Typewriter
-                                dataToRotate={[
-                                [
-                                    { type: "word", text: chatText[1] },
-                                    { type: "word", text: `<br/><br/>`, override: { maxTypespeed: 0 } },
-                                    { type: "word", text: chatText[2] },
-                                    { type: "word", text: `<br/><br/>`, override: { maxTypespeed: 0 } },
-                                    { type: "word", text: chatText[3] },
-                                    { type: "word", text: `<br/><br/>`, override: { maxTypespeed: 0 } },
-                                    { type: "word", text: chatText[4] },
-                                    {
-                                        type: "action",
-                                        action: "function",
-                                        func: () => {
-                                            console.log(2)
-                                            nextStep(2)
-                                        },
-                                        wait: 1000
-                                        }
-                                    ]
-                                ]}
-                                cursor = {{
-                                    char :chatStep === 1 && start?"|":""
-                                }}
-                                maxTypeSpeed = {40}
-                                typeVariance = {10}
-                                containerClass = "py-2"
-                    
-                                start = {start}
-                                loop = {false}
-                            /> 
-                            :
-                            <div className="Typewriter-content py-2">
-                                <span>{chatText[1]}</span>
-                                <br/><br/>
-                                <span>{chatText[2]}</span>
-                                <br/><br/>
-                                <span>{chatText[3]}</span>
-                                <br/><br/>
-                                <span>{chatText[4]}</span>
+                }
+
+                {
+                    start && chatStep > 2 &&
+                    <div className="d-flex px-sm-4 bg-theme-shade flex-row py-2">
+                        <div className="col-sm-1 col-2">
+                            <div className="border border-theme badge text-theme d-block ms-auto me-3" style={{width:"40px"}}>
+                                Bot
                             </div>
-                        }
-                    </div>
-                </div>
-            }
-
-            {
-                start && chatStep > 1 &&
-                <div className="d-flex flex-row py-2">
-                    <div className="col-sm-1 col-2">
-                        <div className="border border-theme badge text-theme d-block ms-auto me-3" style={{width:"40px"}}>
-                            JD
+                        </div>
+                        <div className="col-sm-11 col-10">
+                            {
+                                chatStep === 3 ?
+                                <Typewriter
+                                    dataToRotate={[
+                                    [
+                                        { type: "word", text: chatText[6] },
+                                        { type: "word", text: `<br/><br/>`, override: { maxTypespeed: 0 } },
+                                        { type: "word", text: chatText[7] },
+                                        { type: "word", text: `<br/><br/>`, override: { maxTypespeed: 0 } },
+                                        { type: "word", text: chatText[8] },
+                                        {
+                                            type: "action",
+                                            action: "function",
+                                            func: () => {
+                                                console.log(4)
+                                                nextStep(4)
+                                            },
+                                            wait: 1000
+                                            }
+                                        ]
+                                    ]}
+                                    cursor = {{
+                                        char :chatStep === 3 && start?"|":""
+                                    }}
+                                    maxTypeSpeed = {40}
+                                    typeVariance = {10}
+                                    containerClass = "py-2"
+                        
+                                    start = {start}
+                                    loop = {false}
+                                /> 
+                                :
+                                <div className="Typewriter-content py-2">
+                                    <span>{chatText[6]}</span>
+                                    <br/><br/>
+                                    <span>{chatText[7]}</span>
+                                    <br/><br/>
+                                    <span>{chatText[8]}</span>                       
+                                </div>
+                            }
                         </div>
                     </div>
-                    <div className="col-sm-11 col-10">
-                        {
-                            chatStep === 2 ?
-                            <Typewriter
-                                dataToRotate={[
-                                [{ type: "word", text: chatText[5] },
-                                {
-                                    type: "action",
-                                    action: "function",
-                                    func: () => {
-                                        console.log(3)
-                                        nextStep(3)
-                                    },
-                                    wait: 1000
-                                    }
-                                ]]}
-                                cursor = {{
-                                    char :chatStep === 2 && start?"|":""
-                                }}
-                                maxTypeSpeed = {40}
-                                typeVariance = {10}
-                                containerClass = "py-2"
-                    
-                                start = {start}
-                                loop = {false}
-                            /> 
-                            :
-                            <span className="Typewriter-content py-2">{chatText[5]}</span>
-                        }
-                    </div>
-                </div>
-            }
-
+                }
+            </div>
+    
             {
-                start && chatStep > 2 &&
-                <div className="d-flex flex-row py-2">
-                    <div className="col-sm-1 col-2">
-                        <div className="border border-theme badge text-theme d-block ms-auto me-3" style={{width:"40px"}}>
-                            Bot
-                        </div>
-                    </div>
-                    <div className="col-sm-11 col-10">
-                        {
-                            chatStep === 3 ?
-                            <Typewriter
-                                dataToRotate={[
-                                [
-                                    { type: "word", text: chatText[6] },
-                                    { type: "word", text: `<br/><br/>`, override: { maxTypespeed: 0 } },
-                                    { type: "word", text: chatText[7] },
-                                    { type: "word", text: `<br/><br/>`, override: { maxTypespeed: 0 } },
-                                    { type: "word", text: chatText[8] },
-                                    {
-                                        type: "action",
-                                        action: "function",
-                                        func: () => {
-                                            console.log(4)
-                                            nextStep(4)
-                                        },
-                                        wait: 1000
-                                        }
-                                    ]
-                                ]}
-                                cursor = {{
-                                    char :chatStep === 3 && start?"|":""
-                                }}
-                                maxTypeSpeed = {40}
-                                typeVariance = {10}
-                                containerClass = "py-2"
-                    
-                                start = {start}
-                                loop = {false}
-                            /> 
-                            :
-                            <div className="Typewriter-content py-2">
-                                <span>{chatText[6]}</span>
-                                <br/><br/>
-                                <span>{chatText[7]}</span>
-                                <br/><br/>
-                                <span>{chatText[8]}</span>                       
-                            </div>
-                        }
-                    </div>
-                </div>
+                start &&
+                <button 
+                    className="btn border border-theme text-theme mx-auto mb-4"
+                    style={{width:"fit-content"}}
+                    onClick={()=>{setStart(false);setChatStep(0)}}
+                >
+                    Reset
+                </button>
             }
+            
         </div>
-        
-
-        
-      </div>
     )
 }

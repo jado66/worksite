@@ -4,10 +4,11 @@ import BlackholeChat from "../../components/techDemos/AiChats/BlackholeChat";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import AlgebraChat from "../../components/techDemos/AiChats/AlgebraChat";
-
+import { useState } from "react";
 
 export default function BlockchainAndCrypto() {
-        
+    const [resetCounter, setResetCounter] = useState(0)
+ 
     return (
     <Container>
       <h1 className="text-center h3 mt-4 mb-4">Artificial Intelligence &amp; Machine Learning</h1>
@@ -27,21 +28,25 @@ export default function BlockchainAndCrypto() {
 
       <h1 className="text-center h3 ">Text AI</h1>
         
-        <Carousel
-            showStatus = {false}
-            autoPlay = {false}
-            useKeyboardArrows = {false}
-            showThumbs = {false}
-            infiniteLoop = {false}
-            // dynamicHeight={true}
-        >
-            <div key="slide1" className="pt-4 mt-4">
-                <AlgebraChat/>
-            </div>
-            <div key="slide2" className="pt-4 mt-4">
-                <BlackholeChat/>
-            </div>
-        </Carousel>
+        <div className="px-lg-5">
+            <Carousel
+                showStatus = {false}
+                autoPlay = {false}
+                useKeyboardArrows = {false}
+                showThumbs = {false}
+                infiniteLoop = {false}
+                onChange	= {()=>setResetCounter(p=>p+1)}
+                // dynamicHeight={true}
+                >
+                <div key="slide1" className="pt-4 mt-4">
+                    <AlgebraChat reset = {resetCounter}/>
+                </div>
+                <div key="slide2" className="pt-4 mt-4">
+                    <BlackholeChat reset = {resetCounter}/>
+                </div>
+            </Carousel>
+        </div>
+        
           
         
         {/* <BlackholeChat/> */}

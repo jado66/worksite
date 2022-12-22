@@ -85,6 +85,11 @@ $a3-light: map-get($custom-colors , "a3-light");
   .bg-theme{
     background-color: $bg-dark;
   }
+  .bg-theme-shade{
+    background-color: $bg-dark;
+    filter: brightness($hover-bg-dark);
+  }
+
   .bg-theme-inv{
     background-color: $fg-dark;
   }

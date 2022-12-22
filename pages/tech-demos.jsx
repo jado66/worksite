@@ -2,16 +2,25 @@ import Container from '../components/utils/Container';
 import CallToAction from '../components/pageComponents/CallToAction';
 import ReactFlowDemo from '../components/techDemos/FlowBuilder/ReactFlow';
 import GraphDemo from '../components/techDemos/Cytoscape/GraphDemo';
+import { Carousel } from "react-responsive-carousel";
+import AlgebraChat from '../components/techDemos/AiChats/AlgebraChat';
+import BlackholeChat from '../components/techDemos/AiChats/BlackholeChat';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { useState } from 'react';
 
 export default function Index() {
+ 
+  const [resetCounter, setResetCounter] = useState(0)
+
   return (
     <Container>
       <div className='mt-3'>
-       
-       
-      <h1 className="text-center h3 mt-4 mb-4">Technical Demos</h1>
+      
+        <h1 className="text-center h3 mt-4 mb-4">Technical Demos</h1>
 
-        <div className="d-flex row px-lg-4 gx-0">
+        <hr className="bg-brand opacity-100 my-4"/>
+
+        < div className="d-flex row px-lg-4 gx-0">
         
           <div className="col">
               <h3 className="text-center pt-lg-0">Flow Builder</h3>
@@ -28,6 +37,8 @@ export default function Index() {
                 className = {"flex-grow-1 rounded-3"}
               />
           </div>      
+
+          <hr className="bg-brand opacity-100 my-4"/>
 
           <div className="col">
               <h3 className="text-center pt-lg-0">Graph Data Viewer</h3>
@@ -46,10 +57,34 @@ export default function Index() {
           </div>      
         </div>
           
-     
+        <hr className="bg-brand opacity-100 my-4"/>
+
+        <div className="px-lg-5">
+          <h3 className="text-center pt-lg-0">Chat AI</h3>
+
+          <Carousel
+              showStatus = {false}
+              autoPlay = {false}
+              useKeyboardArrows = {false}
+              showThumbs = {false}
+              infiniteLoop = {false}
+              onChange	= {()=>setResetCounter(p=>p+1)}
+              // dynamicHeight={true}
+          >
+              <div key="slide1" className="pt-4 mt-4">
+                  <AlgebraChat reset = {resetCounter}/>
+              </div>
+              <div key="slide2" className="pt-4 mt-4">
+                  <BlackholeChat reset = {resetCounter}/>
+              </div>
+          </Carousel>
+        </div>
+
+        <hr className="bg-brand opacity-100 my-4"/>
+
       </div>   
 
-        <CallToAction/>
+      <CallToAction/>
     </Container>
   );
 }

@@ -1,6 +1,6 @@
 import Typewriter from "react-typewriter-animate";
 import "react-typewriter-animate/dist/Typewriter.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const chatText = [
@@ -40,16 +40,23 @@ export default function AlgebraChat (props) {
             return prev
         })
     }
+
+    useEffect(()=>{
+
+        setChatStep(0)
+        setStart(false)
+    }, [props.reset])
     
     return(
-        <div className="px-sm-4">
+        <div className="border border-theme rounded-5">
             <div className='col-sm-12 d-flex flex-column justify-content-start mb-4 text-start ' style={{minHeight:"200px"}}>
                 
-                <h3 className="text-center">Bot teaches Algebra basics</h3>
+                <h3 className="text-center mt-3">Bot teaches Algebra basics</h3>
                 { 
                     !start &&
                         <button 
-                            className="btn border-theme text-theme mt-3"
+                            className="btn border border-theme text-theme mt-3 mx-auto"
+                            style={{width:"fit-content"}}
                             onClick={()=>setStart(true)}
                         >
                             Start Algebra Chat Example
@@ -58,7 +65,7 @@ export default function AlgebraChat (props) {
 
                 {
                     start && 
-                    <div className="d-flex flex-row py-2">
+                    <div className="d-flex px-sm-4 flex-row py-2">
                         <div className="col-sm-1 col-2">
                             <div className="border border-theme badge text-theme d-block ms-auto me-3" style={{width:"40px"}}>
                                 JD
@@ -85,7 +92,7 @@ export default function AlgebraChat (props) {
                                         }}
                                         maxTypeSpeed = {40}
                                         typeVariance = {10}
-                                        containerClass = "mb-4 d-inline-block"
+                                        containerClass = " d-inline-block"
                                         
                                         start = {start}
                                         loop = {false}
@@ -99,7 +106,7 @@ export default function AlgebraChat (props) {
 
                 {
                     start && chatStep > 0 &&
-                    <div className="d-flex flex-row py-2">
+                    <div className="d-flex px-sm-4 bg-theme-shade flex-row py-2">
                         <div className="col-sm-1 col-2">
                             <div className="border border-theme badge text-theme d-block ms-auto me-3" style={{width:"40px"}}>
                                 Bot
@@ -172,7 +179,7 @@ export default function AlgebraChat (props) {
 
                 {
                     start && chatStep > 1 &&
-                    <div className="d-flex flex-row py-2">
+                    <div className="d-flex px-sm-4  flex-row py-2">
                         <div className="col-sm-1 col-2">
                             <div className="border border-theme badge text-theme d-block ms-auto me-3" style={{width:"40px"}}>
                                 JD
@@ -213,7 +220,7 @@ export default function AlgebraChat (props) {
 
                 {
                     start && chatStep > 2 &&
-                    <div className="d-flex flex-row py-2">
+                    <div className="d-flex px-sm-4 bg-theme-shade flex-row py-2">
                         <div className="col-sm-1 col-2">
                             <div className="border border-theme badge text-theme d-block ms-auto me-3" style={{width:"40px"}}>
                                 Bot
@@ -280,6 +287,16 @@ export default function AlgebraChat (props) {
                     </div>
                 }
             </div>
+            {
+                start &&
+                <button 
+                    className="btn border border-theme text-theme mx-auto mb-4"
+                    style={{width:"fit-content"}}
+                    onClick={()=>{setStart(false);setChatStep(0)}}
+                >
+                    Reset
+                </button>
+            }
         </div>
     )
 }
