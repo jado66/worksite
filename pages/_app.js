@@ -59,19 +59,7 @@ function MyApp({ Component, pageProps, session }) {
   return (
     
     <SessionProvider session={session}>
-      {isUnderConstruction && session === null
-      ?
-        <ThemeProvider.Provider 
-          value = {{
-            theme: theme,
-            fg: fg,
-            bg: bg,
-            invertTheme: invertTheme
-          }}
-        >
-          <Component {...pageProps} />
-        </ThemeProvider.Provider>
-      :
+      
         <ThemeProvider.Provider
           value = {{
             theme: theme,
@@ -84,7 +72,7 @@ function MyApp({ Component, pageProps, session }) {
             <Component {...pageProps} />
           </AppBase>  
         </ThemeProvider.Provider>
-      }
+  
     </SessionProvider>
   )
 }
