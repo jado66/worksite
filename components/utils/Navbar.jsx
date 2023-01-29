@@ -78,9 +78,19 @@ export default function Navbar(props){
                         <li className="nav-item">
                             <Link className={"nav-link text-theme"} href="/consulting">Consulting</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className={"nav-link text-theme"} href="/tech-demos">Demos</Link>
+                        <li className="nav-item dropdown ">
+                            <a className={"nav-link dropdown-toggle text-theme"} href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Demos
+                            </a>
+                            <ul className={"dropdown-menu border-theme bg-theme"} aria-labelledby="navbarScrollingDropdown">
+                                <li><Link className={"dropdown-item bg-transparent text-theme"} href="/tech-demos">Technical Demos </Link></li>
+                                <li><Link className={"dropdown-item bg-transparent text-theme"} href="/previous-work">Previous Work</Link></li>
+                            </ul>
                         </li>
+                       
+                        {/* <li className="nav-item">
+                            <Link className={"nav-link text-theme"} href="/tech-demos">Demos</Link>
+                        </li> */}
                         <li className="nav-item">
                             <Link className={"nav-link text-theme"} href="/contact">Contact</Link>
                         </li>

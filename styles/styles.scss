@@ -127,6 +127,12 @@ $a3-light: map-get($custom-colors , "a3-light");
     }
   }
 
+  .darker-hover{
+    &:hover {
+      filter: brightness($hover-bg-dark);
+    }
+  }
+
   .text-theme-inv > a{
     &:hover {
       filter: brightness($hover-bg-dark);
@@ -221,6 +227,14 @@ $a3-light: map-get($custom-colors , "a3-light");
     }
   }
 
+  .darker-hover{
+    &:hover {
+      filter: brightness($hover-bg-light);
+    }
+  }
+
+  
+
   .react-flow__controls-button{
     background-color: $bg-light !important;
     color: $fg-light !important;
@@ -247,6 +261,12 @@ $a3-light: map-get($custom-colors , "a3-light");
   .react-flow__node.highlight {
     background-color: #ff0072;
     color: white;
+  }
+}
+
+.no-hover{
+  &:hover {
+    filter: none !important
   }
 }
 
